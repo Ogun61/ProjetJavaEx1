@@ -1,36 +1,29 @@
 package projetjavaex1;
 import java.util.*;
 
-/**
- * 
- */
 public class Cours {
-
-    /**
-     * Default constructor
-     */
-    public Cours() {
-    }
-
-    /**
-     * 
-     */
+ 
     private String codec;
 
-    /**
-     * 
-     */
+  
     private int nbrha;
 
-    /**
-     * 
-     */
     private String intitulec;
 
+    private List<Groupe> code_groupe = new ArrayList<>();
+
     /**
-     * 
+     * @param codec
+     * @param nbrha
+     * @param intitulec
      */
-    private String code_groupe;
+    public Cours(String codec, int nbrha, String intitulec) {
+        this.codec=codec;
+        this.nbrha=nbrha;
+        this.intitulec=intitulec;
+        
+        
+    }
 
     public String getCodec() {
         return codec;
@@ -56,16 +49,13 @@ public class Cours {
         this.intitulec = intitulec;
     }
 
-    public String getCode_groupe() {
+    public List<Groupe> getCode_groupe() {
         return code_groupe;
     }
 
-    public void setCode_groupe(String code_groupe) {
+    public void setCode_groupe(List<Groupe> code_groupe) {
         this.code_groupe = code_groupe;
     }
 
-
-
   
-
 }

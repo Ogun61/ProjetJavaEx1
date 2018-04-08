@@ -1,38 +1,19 @@
 package projetjavaex1;
-import java.util.*;
 
 /**
  * 
  */
 public class Enseignant {
-
+    protected String nom;
+    protected String matricule;
+    protected String prenom;
     /**
      * Default constructor
      */
-    private Enseignant() {
-    }
-
-    /**
-     * 
-     */
-    private String matricule;
-
-    /**
-     * 
-     */
-    private String nom;
-
-    /**
-     * 
-     */
-    private String prenom;
-
-    public String getMatricule() {
-        return matricule;
-    }
-
-    public void setMatricule(String matricule) {
-        this.matricule = matricule;
+    public Enseignant(String nom,String matricule,String prenom) {
+        this.nom=nom;
+        this.matricule=matricule;
+        this.prenom=prenom;
     }
 
     public String getNom() {
@@ -43,6 +24,14 @@ public class Enseignant {
         this.nom = nom;
     }
 
+    public String getMatricule() {
+        return matricule;
+    }
+
+    public void setMatricule(String matricule) {
+        this.matricule = matricule;
+    }
+
     public String getPrenom() {
         return prenom;
     }
@@ -50,6 +39,14 @@ public class Enseignant {
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
+
+    @Override
+    public String toString() {
+        return "Enseignant{" + "nom=" + nom + ", matricule=" + matricule + ", prenom=" + prenom + '}';
+    }
+
+
+ 
 
 
 }
