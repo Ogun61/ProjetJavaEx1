@@ -11,6 +11,7 @@ public class Cours {
     private String intitulec;
 
     private List<Groupe> code_groupe = new ArrayList<>();
+    private List<Enseignant> enseignants = new ArrayList();
 
     /**
      * @param codec
@@ -55,6 +56,14 @@ public class Cours {
 
     public void setCode_groupe(List<Groupe> code_groupe) {
         this.code_groupe = code_groupe;
+    }
+
+    public List<Enseignant> getEnseignants() {
+        return enseignants;
+    }
+
+    public void setEnseignants(List<Enseignant> enseignants) {
+        this.enseignants = enseignants;
     }
 
   

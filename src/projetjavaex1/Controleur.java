@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package projetjavaex1;
+import java.util.*;
 
 /**
  *
@@ -26,7 +27,7 @@ public class Controleur {
     
     
     public void gestion() {
-        
+        Scanner sc= new Scanner(System.in);
         int ch;
      
       do {
@@ -41,13 +42,6 @@ public class Controleur {
           switch(ch){
               case 1:ajoutEnseignant();
                      break;
-                    
-              case 2 :();
-                    break;
-              case 3:();
-                    break;
-              case 4:();
-                    break;
               case 5:System.out.println("fin");
                    break;
               default :System.out.println("choix invalide");         
