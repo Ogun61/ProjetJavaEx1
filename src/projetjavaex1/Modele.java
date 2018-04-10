@@ -25,8 +25,8 @@ public class Modele {
 
    public String ajouterEnseignant(Enseignant e){
      if(e==null)return "enseignant nul";
-     if(!ens.add(e))return "client deja enregistre";
-     return "ajout client effectue";
+     if(!ens.add(e))return "enseigant déja enregistre";
+     return "ajout enseignant effectue";
   }
     
 }
