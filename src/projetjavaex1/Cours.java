@@ -13,6 +13,12 @@ public class Cours {
     private List<Groupe> code_groupe = new ArrayList<>();
     private List<Enseignant> enseignants = new ArrayList();
 
+    
+    public Cours (){
+       
+    }
+    
+    
     /**
      * @param codec
      * @param nbrha
@@ -24,6 +30,10 @@ public class Cours {
         this.intitulec=intitulec;
         
         
+    }
+    
+     public Cours(String codec) {
+        this.codec=codec;
     }
 
     public String getCodec() {
@@ -64,6 +74,11 @@ public class Cours {
 
     public void setEnseignants(List<Enseignant> enseignants) {
         this.enseignants = enseignants;
+    }
+    
+    public String  assignation(Enseignant enseignant) {
+        this.enseignants.add(enseignant);
+        return "le cours a été assigner à l'enseignant";
     }
 
   

@@ -1,6 +1,8 @@
 package projetjavaex1;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * 
@@ -9,7 +11,7 @@ public class Enseignant {
     protected String nom;
     protected String matricule;
     protected String prenom;
-    private ArrayList<Cours> code_cours = new ArrayList();
+    protected List<Cours> cours = new ArrayList();
     /**
      * Default constructor
      */
@@ -18,6 +20,11 @@ public class Enseignant {
         this.matricule=matricule;
         this.prenom=prenom;
        
+    }
+    
+     public Enseignant(String matricule) {
+        this.matricule=matricule;
+        
     }
 
     public String getNom() {
@@ -49,8 +56,8 @@ public class Enseignant {
         return "Enseignant{" + "nom=" + nom + ", matricule=" + matricule + ", prenom=" + prenom + '}';
     }
 
-    public ArrayList<Cours> getCode_cours() {
-        return code_cours;
+    public List<Cours> getCours() {
+        return cours;
     }
 
 
