@@ -26,7 +26,7 @@ public class Controleur {
     }
     
     
-    public void gestion() {
+    public void menu() {
         Scanner sc= new Scanner(System.in);
         int ch;
      
@@ -55,9 +55,9 @@ public class Controleur {
     }
    
     public void ajoutEns() {
-        String nom = v.lireMsg("nom de l'enseignant : ");
-        String prenom = v.lireMsg("prenom de l'enseignant ");
-        String matricule = v.lireMsg("matricule ? :");
+        String nom = v.lireMsg("nom de l'enseignant ? ");
+        String prenom = v.lireMsg("prenom de l'enseignant ? ");
+        String matricule = v.lireMsg("matricule ? ");
         Enseignant e = new Enseignant(nom, matricule, prenom);
         String msg = m.ajtEnseignant(e);
         v.affMsg(msg);
@@ -67,11 +67,11 @@ public class Controleur {
     public void affCoursEns() {
         Enseignant ensRech = rechEns();
         if (ensRech == null) {
-            v.affMsg("Enseignant introuvable");
+            v.affMsg("enseignant introuvable");
         } else {
             List<Cours> listec = m.getEnseignantCours(ensRech);
             if (listec == null) {
-                v.affMsg("vide");
+                v.affMsg("liste vide");
                 return;
             }
             v.affListe(listec);
@@ -94,7 +94,7 @@ public class Controleur {
             String code = v.lireMsg("Code du cours ? ");
             String nbr = v.lireMsg("Nombre d'heure ? ");
             int nbrh = Integer.parseInt(nbr);
-            String intitule = v.lireMsg("Intitule ? :");
+            String intitule = v.lireMsg("Intitule ? ");
             Cours c = new Cours(code, nbrh, intitule);
             String msg = m.ajtCours(c);
             v.affMsg(msg);

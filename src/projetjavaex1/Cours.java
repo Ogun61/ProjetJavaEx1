@@ -81,5 +81,10 @@ public class Cours {
         return "le cours a été assigner à l'enseignant";
     }
 
+    @Override
+    public String toString() {
+        return "Cours{" + "codec=" + codec + ", nbrha=" + nbrha + ", intitulec=" + intitulec + ", code_groupe=" + code_groupe + ", enseignants=" + enseignants + '}';
+    }
+
   
 }

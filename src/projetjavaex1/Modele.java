@@ -47,10 +47,10 @@ public class Modele {
     
     public Cours getCours(String codeRech,int nbrhRech,String intituleRech) {
         Cours  cRech= new Cours(codeRech,nbrhRech,intituleRech);
-     for(Cours cl: crs){
+        for(Cours cl: crs){
          if(cl.equals(cRech)) return cl;
-     }
-     return null;
+        }
+        return null;
     }
     
     public List<Enseignant> ToutEns(Comparator<Enseignant> cmp) {

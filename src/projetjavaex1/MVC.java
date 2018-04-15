@@ -11,7 +11,7 @@ public class MVC {
         v=new Vue();
         m=new Modele();
         c=new Controleur(m,v);
-        c.gestion();
+        c.menu();
     }
    
     public static void main(String[] args) {
