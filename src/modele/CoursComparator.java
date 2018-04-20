@@ -3,16 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetjavaex1;
+package modele;
+
 import java.util.Comparator;
+import mesclassesCEG.Cours;
 
 /**
  *
- * @author ogun.ark
+ * @author Nugo
  */
-public class EnseignantComparator implements Comparator<Enseignant>{
+public class CoursComparator implements Comparator<Cours>{
    @Override
-    public int compare(Enseignant e1,Enseignant e2){
-        return e1.getMatricule().compareTo(e2.getMatricule());
+    public int compare(Cours c1,Cours c2){
+        return c1.getCodec().compareTo(c2.getCodec());
     }
 }
