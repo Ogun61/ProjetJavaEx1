@@ -214,8 +214,6 @@ public class ModeleTest {
             }
 
         }
-        /*for (Enseignant eTrouve : expResult) {
-            instance.deleteE(eTrouve);*/
 }
         
         
