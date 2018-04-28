@@ -21,11 +21,11 @@ public class Modele {
     private final List<Enseignant> ens= new ArrayList();
     
     /**
-     * Liste de toutes les cours
+     * Liste de tous les cours
      */
     private final List<Cours> crs= new ArrayList<>();
     /**
-     * Liste de toutes les groupes
+     * Liste de tous les groupes
      */
     private final List<Groupe> groupe = new ArrayList<>();
 
@@ -128,9 +128,6 @@ public class Modele {
      */
     public Enseignant getEnseignant(Enseignant eRech) {
         int i = ens.indexOf(eRech);
-        System.out.println(eRech);
-        System.out.println(ens);
-        System.out.println(i);
         if (i < 0) {
             return null;
         } else {
@@ -247,20 +244,20 @@ public class Modele {
      *
      * @return la liste cours trier
      */
-    /*public List<Cours> tousLesCrs() {
+    public List<Cours> tousLesCrs() {
       crs.sort(new CoursComparator());
       return crs;
-    }*/
+    }
 
     /**
      * Comparator de la liste enseignant parmet le tri
      *
      * @return la liste enseignant trier
      */
-    /*public List<Enseignant> tousLesEnseignant() {
+    public List<Enseignant> tousLesEnseignant() {
       ens.sort(new EnseignantComparator());
       return ens;
-   }*/
+   }
 
     /**
      *
@@ -269,8 +266,19 @@ public class Modele {
      * @return
      */
     public String assignation(Cours c, Enseignant e) {
-        //e.assignation(c);
         String msg = c.assignation(e);
+
+        return msg;
+    }
+    
+    /**
+     *
+     * @param c est le cours
+     * @param g est le groupe qui a le cours
+     * @return
+     */
+    public String appartient(Cours c, Groupe g) {
+        String msg = c.appartient(g);
 
         return msg;
     }

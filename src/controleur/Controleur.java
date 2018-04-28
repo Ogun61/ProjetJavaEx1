@@ -62,20 +62,21 @@ public class Controleur {
                 case 2:ajtCours();break;
                 case 3:ajtGroupe(); break;    
                 case 4:assignCrs();break;
-                case 5:modifEns();break;
-                case 6:supprimerEns();break;
-                case 7:modifCrs();break;
-                case 8:supprimerCrs();break;
-                case 9:rechEns();break;
-                case 10:rechCours();break;
-                case 11:rechGroupe();break;    
-                case 12:listeEns();break; 
-                case 13:listeCrs();break;
-                case 14:listeGrp();break;    
-                case 15:v.affMsg("Fin");break;
+                case 5:assignGroupe();break;
+                case 6:modifEns();break;
+                case 7:supprimerEns();break;
+                case 8:modifCrs();break;
+                case 9:supprimerCrs();break;
+                case 10:rechEns();break;
+                case 11:rechCours();break;
+                case 12:rechGroupe();break;    
+                case 13:listeEns();break; 
+                case 14:listeCrs();break;
+                case 15:listeGrp();break;    
+                case 16:v.affMsg("Fin");break;
                 default:v.affMsg("Choix invalide");
             }
-        } while (ch != 15);
+        } while (ch != 16);
 
     }
 
@@ -158,6 +159,14 @@ public class Controleur {
         Enseignant eRech = v.rechEns();
         return m.getEnseignant(eRech);
     }
+    /**
+     * methode de type Groupe permettant de retourner le groupe rechercher
+     * 
+     */
+    private Groupe rechGrp() {
+        Groupe gRech = v.rechGroupe();
+        return m.getGroupe(gRech);
+    }
 
     /**
      * methode qui modifie le cours 
@@ -199,6 +208,32 @@ public class Controleur {
         v.affEnseignant(ensRech);
         String msg = m.assignation(crsRech, ensRech);
         //ensRech.getCours().add(crsRech);
+        v.affMsg(msg);
+        
+    }
+    
+    public void assignGroupe(){
+        v.affMsg("-assignation du groupe-");
+        Cours crsRech = rechCrs();
+
+        if (crsRech != null) {
+            v.affMsg("le cours trouvée est :");
+            v.affCrs(crsRech);
+        } else {
+            v.affMsg("cours introuvable");
+            return;
+        }
+        
+       
+        Groupe grpRech = rechGrp();
+        if (grpRech == null) {
+            v.affMsg("groupe introuvable");
+            return;
+        }
+        v.affMsg("l'enseigannt trouvé est :");
+        v.affGroupe(grpRech);
+        String msg = m.appartient(crsRech, grpRech);
+        
         v.affMsg(msg);
         
     }
@@ -246,7 +281,7 @@ public class Controleur {
      * methode qui affiche toute la liste des enseignants
      */
     public void listeEns() {
-        List<Enseignant> le = m.tousLesEns();
+        List<Enseignant> le = m.tousLesEnseignant();
         v.affListe(le);
     }
 
@@ -254,7 +289,7 @@ public class Controleur {
      * methode qui affiche toute la liste des cours
      */
     public void listeCrs() {
-        List<Cours> lc = m.tousLesCours();
+        List<Cours> lc = m.tousLesCrs();
         v.affListe(lc);
     }
 

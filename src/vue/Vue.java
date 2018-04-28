@@ -33,7 +33,8 @@ public class Vue {
                 "Ajout enseignant",
                 "Ajout cours",
                 "Ajout groupe",
-                "Assigner cours a un enseignant",
+                "Assigner cours à un enseignant",
+                "Attribuer cours à un groupe",
                 "Modifier enseignants",
                 "Supprimer enseignants",
                 "Modifier cours",
@@ -167,6 +168,17 @@ public class Vue {
         affMsg("Nom de l'enseignant :" + e.getNom());
         affMsg("Prénom de l'enseignant :" + e.getPrenom());
         affMsg("Matricule  :" + e.getMatricule());
+
+    }
+    
+    /**
+     *methode affGroupe affiche les informations du groupe 
+     * @param g
+     */
+    public void affGroupe(Groupe g) {
+        affMsg("Code du groupe :" + g.getCodegr());
+        affMsg("Intitule du groupe :" + g.getIntitulegr());
+        affMsg("Niveau  :" + g.getNiveau());
 
     }
     

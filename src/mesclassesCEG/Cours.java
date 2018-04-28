@@ -200,11 +200,33 @@ public class Cours {
      * @return un message (String) informant le succes de l'assignation
      */
     public String assignation(Enseignant enseignant) {
+        if (enseignant == null) {
+            return "Enseignant n'existe pas";
+        }
+        if (enseignants.contains(enseignant)) {
+            return "Enseignant déjà enregistré";
+        }
         this.enseignants.add(enseignant);
         return "le cours a été assigner à l'enseignant";
     }
     
-
+    /**
+     *
+     * @param groupe est le groupe qui appartient au cours,ce groupe est ajouté dans cours
+     * @return un message (String) informant le succès de l'attribution
+     */
+    public String appartient(Groupe groupe) {
+        if (groupe == null) {
+            return "groupe n'existe pas";
+        }
+        if (this.groupe.contains(groupe)) {
+            return "groupe déjà enregistré";
+        }
+        this.groupe.add(groupe);
+        return "le cours a été attribuer au groupe";
+    }
+    
+    
     /**
      * Méthode toString
      *
