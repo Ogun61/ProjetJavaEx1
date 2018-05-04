@@ -62,7 +62,7 @@ public class ModeleTest {
     @Test
     public void testAjoutCours() {
         System.out.println("ajoutCours");
-        Cours c = new Cours("123","43","math");
+        Cours c = new Cours("123",43,"math");
         Modele instance = new Modele();
         String expResult = "ajout du cours effectué";
         String result = instance.ajoutCours(c);
@@ -90,7 +90,7 @@ public class ModeleTest {
     @Test
     public void testGetCours() {
         System.out.println("getCours");
-        Cours cRech = new Cours("123","43","math");
+        Cours cRech = new Cours("123",43,"math");
         Modele instance = new Modele();
         instance.ajoutCours(cRech);
         Cours expResult = cRech;
@@ -135,7 +135,7 @@ public class ModeleTest {
     @Test
     public void testModifCours() {
         System.out.println("modifCours");
-        Cours nvCours = new Cours("123","43","math");
+        Cours nvCours = new Cours("123",43,"math");
         Cours tmp = new Cours("1234,41,geo");
         Modele instance = new Modele();
         instance.ajoutCours(tmp);
@@ -184,7 +184,7 @@ public class ModeleTest {
     @Test
     public void testSuppCours() {
         System.out.println("suppCours");
-        Cours c = new Cours("123","43","math");
+        Cours c = new Cours("123",43,"math");
         Modele instance = new Modele();
         instance.ajoutCours(c);
         String result = instance.suppCours(c);

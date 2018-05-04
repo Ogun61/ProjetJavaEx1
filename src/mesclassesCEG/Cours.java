@@ -23,7 +23,7 @@ public class Cours {
     /**
      * nombre d'heure du cours
      */
-    private String nbrha;
+    private int nbrha;
     /**
      * intitule du cours
      */
@@ -52,7 +52,7 @@ public class Cours {
      * @param nbrha
      * @param intitulec
      */
-    public Cours(String codec, String nbrha, String intitulec) {
+    public Cours(String codec, int nbrha, String intitulec) {
         this.codec = codec;
         this.nbrha = nbrha;
         this.intitulec = intitulec;
@@ -90,7 +90,7 @@ public class Cours {
      *
      * @return nbrha du cours
      */
-    public String getNbrha() {
+    public int getNbrha() {
         return nbrha;
     }
 
@@ -99,7 +99,7 @@ public class Cours {
      *
      * @param nbrha affecte nbrha
      */
-    public void setNbrha(String nbrha) {
+    public void setNbrha(int nbrha) {
         this.nbrha = nbrha;
     }
 
@@ -129,12 +129,8 @@ public class Cours {
      */
     @Override    
     public int hashCode() {
-        int hash = 5;
+        int hash = 1;
         hash = 83 * hash + Objects.hashCode(this.codec);
-        hash = 83 * hash + Objects.hashCode(this.nbrha);
-        hash = 83 * hash + Objects.hashCode(this.intitulec);
-        hash = 83 * hash + Objects.hashCode(this.enseignants);
-        hash = 83 * hash + Objects.hashCode(this.groupe);
         return hash;
     }
 

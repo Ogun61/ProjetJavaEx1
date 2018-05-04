@@ -39,6 +39,7 @@ public class Vue {
                 "Supprimer enseignants",
                 "Modifier cours",
                 "Supprimer cours",
+                "Supprimer tous les enseignants du cours",
                 "Recherche enseignants",
                 "Recherche cours",
                 "Recherche groupe",
@@ -113,9 +114,10 @@ public class Vue {
     public Cours ajoutCours() {
         String codec = getMsg("Code cours ? ");
         String nbr = getMsg("nombre d'heure ? ");
+        int nbrh = Integer.parseInt(nbr);
         String intitule = getMsg("intitule du cours ? ");
 
-        Cours c = new Cours(codec,nbr,intitule);
+        Cours c = new Cours(codec,nbrh,intitule);
 
         return c;
     }
@@ -241,6 +243,14 @@ public class Vue {
         String codeg = getMsg("code du groupe à rechercher ? ");
         Groupe gRech = new Groupe(codeg);
         return gRech;
+
+    }
+     
+     public String supCoursEns() {
+        affMsg("** Attention cette action supprimera tous les enseignants du cours. Pour annuler l'opération entrez 'non' ** ");
+        String ch = getMsg("Pour supprimer ts les ens entrez 'oui'(0 pour annuler) . ");
+        //int choix = Integer.parseInt(ch);
+        return ch;
 
     }
 

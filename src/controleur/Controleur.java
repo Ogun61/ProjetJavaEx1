@@ -60,31 +60,31 @@ public class Controleur {
             switch (ch) {
                 case 1:ajtEns();break;
                 case 2:ajtCours();break;
-                case 3:ajtGroupe(); break;    
+                case 3:ajtGroupe();break;
                 case 4:assignCrs();break;
                 case 5:assignGroupe();break;
                 case 6:modifEns();break;
                 case 7:supprimerEns();break;
                 case 8:modifCrs();break;
                 case 9:supprimerCrs();break;
-                case 10:rechEns();break;
-                case 11:rechCours();break;
-                case 12:rechGroupe();break;    
-                case 13:listeEns();break; 
-                case 14:listeCrs();break;
-                case 15:listeGrp();break;    
-                case 16:v.affMsg("Fin");break;
+                case 10:supprimerCrsEns();break;
+                case 11:rechEns();break;
+                case 12:rechCours();break;
+                case 13:rechGroupe();break;
+                case 14:listeEns();break;
+                case 15:listeCrs();break;
+                case 16:listeGrp();break;
+                case 17:v.affMsg("Fin");break;
                 default:v.affMsg("Choix invalide");
             }
-        } while (ch != 16);
+        } while (ch != 17);
 
     }
 
-
     /**
-     * methode ajtEns permet l'ajout d'un enseignant en appellant ajoutEns dans la vue,
-     * recupert les informations et appelle la methode ajoutEns dans le modele
-     * ensuite verifie et decide d'ajouter ou pas.
+     * methode ajtEns permet l'ajout d'un enseignant en appellant ajoutEns dans
+     * la vue, recupert les informations et appelle la methode ajoutEns dans le
+     * modele ensuite verifie et decide d'ajouter ou pas.
      *
      */
     public void ajtEns() {
@@ -93,11 +93,11 @@ public class Controleur {
         v.affMsg(msg);
 
     }
-    
+
     /**
-     * methode ajtCours permet l'ajout d'un cours  en appellant ajoutCours dans la vue,
-     * recupert les informations et appelle la methode ajoutCours dans le modele
-     * ensuite verifie et decide d'ajouter ou pas.
+     * methode ajtCours permet l'ajout d'un cours en appellant ajoutCours dans
+     * la vue, recupert les informations et appelle la methode ajoutCours dans
+     * le modele ensuite verifie et decide d'ajouter ou pas.
      *
      */
     public void ajtCours() {
@@ -106,11 +106,11 @@ public class Controleur {
         v.affMsg(msg);
 
     }
-    
+
     /**
-     * methode ajtGroupe permet l'ajout d'un groupe  en appellant ajoutGroupe dans la vue,
-     * recupert les informations et appelle la methode ajoutGroupe dans le modele
-     * ensuite verifie et decide d'ajouter ou pas.
+     * methode ajtGroupe permet l'ajout d'un groupe en appellant ajoutGroupe
+     * dans la vue, recupert les informations et appelle la methode ajoutGroupe
+     * dans le modele ensuite verifie et decide d'ajouter ou pas.
      *
      */
     public void ajtGroupe() {
@@ -121,47 +121,51 @@ public class Controleur {
     }
 
     /**
-     * Méthode rechCours appelle la methode rechCours pour faire une recherche du cours
-     * Enseuite affiche le résultat de la recherche
+     * Méthode rechCours appelle la methode rechCours pour faire une recherche
+     * du cours Enseuite affiche le résultat de la recherche
      */
     private void rechCours() {
         Cours c1 = v.rechCours();
         v.affMsg(m.getCours(c1));
     }
-    
+
     /**
-     * Méthode de type Cours permettant de faire une recherche et retourner le cours au type Cours 
-     * 
+     * Méthode de type Cours permettant de faire une recherche et retourner le
+     * cours au type Cours
+     *
      */
     private Cours rechCrs() {
         Cours cRech = v.rechCours();
         return m.getCours(cRech);
     }
-    
+
     private void rechGroupe() {
         Groupe g = v.rechGroupe();
         v.affMsg(m.getGroupe(g));
     }
 
     /**
-     * methode rechEns appelle la methode  dans la vue pour faire une recherche de
-     * l'enseignant ensuite affiche le résultat de la recherche
+     * methode rechEns appelle la methode dans la vue pour faire une recherche
+     * de l'enseignant ensuite affiche le résultat de la recherche
      */
     private void rechEns() {
         Enseignant e = v.rechEns();
         v.affMsg(m.getEnseignant(e));
     }
+
     /**
-     * methode de type Enseignant permettant de retourner l'enseignant rechercher
-     * 
+     * methode de type Enseignant permettant de retourner l'enseignant
+     * rechercher
+     *
      */
     private Enseignant rechEnse() {
         Enseignant eRech = v.rechEns();
         return m.getEnseignant(eRech);
     }
+
     /**
      * methode de type Groupe permettant de retourner le groupe rechercher
-     * 
+     *
      */
     private Groupe rechGrp() {
         Groupe gRech = v.rechGroupe();
@@ -169,7 +173,7 @@ public class Controleur {
     }
 
     /**
-     * methode qui modifie le cours 
+     * methode qui modifie le cours
      */
     private void modifCrs() {
         Cours cRech = v.rechCours();
@@ -182,11 +186,11 @@ public class Controleur {
         v.affMsg(m.modifCours(recours, tmp));
 
     }
-    
+
     /**
-     *methode qui permet d'assigner un enseignant a un cours
+     * methode qui permet d'assigner un enseignant a un cours
      */
-    public void assignCrs(){
+    public void assignCrs() {
         v.affMsg("-assignation du cours-");
         Cours crsRech = rechCrs();
 
@@ -197,8 +201,7 @@ public class Controleur {
             v.affMsg("cours introuvable");
             return;
         }
-        
-       
+
         Enseignant ensRech = rechEnse();
         if (ensRech == null) {
             v.affMsg("enseignant introuvable");
@@ -209,10 +212,10 @@ public class Controleur {
         String msg = m.assignation(crsRech, ensRech);
         //ensRech.getCours().add(crsRech);
         v.affMsg(msg);
-        
+
     }
-    
-    public void assignGroupe(){
+
+    public void assignGroupe() {
         v.affMsg("-assignation du groupe-");
         Cours crsRech = rechCrs();
 
@@ -223,8 +226,7 @@ public class Controleur {
             v.affMsg("cours introuvable");
             return;
         }
-        
-       
+
         Groupe grpRech = rechGrp();
         if (grpRech == null) {
             v.affMsg("groupe introuvable");
@@ -233,13 +235,13 @@ public class Controleur {
         v.affMsg("l'enseigannt trouvé est :");
         v.affGroupe(grpRech);
         String msg = m.appartient(crsRech, grpRech);
-        
+
         v.affMsg(msg);
-        
+
     }
 
     /**
-     * Méthode qui modifie l'enseignant 
+     * Méthode qui modifie l'enseignant
      *
      */
     private void modifEns() {
@@ -249,7 +251,7 @@ public class Controleur {
 
         v.affMsg(tmp);
         Enseignant nvEns = v.ajtEns();
-        v.affMsg(m.modifEns(nvEns,tmp));
+        v.affMsg(m.modifEns(nvEns, tmp));
 
     }
 
@@ -264,10 +266,12 @@ public class Controleur {
         v.affMsg(m.suppEns(tmp));
 
     }
+
     /**
      * methode qui supprimme le cours rechercher par son code
      */
     private void supprimerCrs() {
+
         Cours cRech = v.rechCours();
         Cours tmp = m.getCours(cRech);
 
@@ -275,6 +279,23 @@ public class Controleur {
         v.affMsg(tmp);
         v.affMsg(m.suppCours(tmp));
 
+    }
+
+    private void supprimerCrsEns() {
+        Cours cRech = v.rechCours();
+        Cours tmp = m.getCours(cRech);
+        if (tmp==null) {
+            v.affMsg("Cours n'existe pas ");
+        }else{
+        String ch = v.supCoursEns();
+        if (ch=="non") {
+            v.affMsg("La suppression a été annuler");
+        } else {
+            v.affMsg("** Suppression de tous les enseignants ** ");
+            v.affMsg(tmp);
+            v.affMsg(m.suppCoursEns(tmp));
+        }
+        }
     }
 
     /**

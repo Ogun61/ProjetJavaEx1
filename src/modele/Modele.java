@@ -15,15 +15,16 @@ import mesclassesCEG.Groupe;
  * @author Nugo
  */
 public class Modele {
+
     /**
      * Liste de tous les enseignants
      */
-    private final List<Enseignant> ens= new ArrayList();
-    
+    private final List<Enseignant> ens = new ArrayList();
+
     /**
      * Liste de tous les cours
      */
-    private final List<Cours> crs= new ArrayList<>();
+    private final List<Cours> crs = new ArrayList<>();
     /**
      * Liste de tous les groupes
      */
@@ -33,13 +34,12 @@ public class Modele {
      * constructeur par défaut
      */
     public Modele() {
-     
-
 
     }
 
     /**
-     *methode qui permet l'ajout d'un enseignant dans la liste des enseignants
+     * methode qui permet l'ajout d'un enseignant dans la liste des enseignants
+     *
      * @param e est l'enseignant à ajouter
      * @return le résultat de l'ajout
      */
@@ -55,7 +55,7 @@ public class Modele {
     }
 
     /**
-     *methode qui permet l'ajout d'un cours dans la liste des cours
+     * methode qui permet l'ajout d'un cours dans la liste des cours
      *
      * @param c le cours à ajouter
      * @return le résultat de l'ajout
@@ -73,7 +73,8 @@ public class Modele {
     }
 
     /**
-     *methode qui permet l'ajout d'un groupe dans la liste des groupes
+     * methode qui permet l'ajout d'un groupe dans la liste des groupes
+     *
      * @param g
      * @return
      */
@@ -134,8 +135,7 @@ public class Modele {
             return ens.get(i);
         }
     }
-    
-    
+
     /**
      * methode qui permet de modifier un enseignant
      *
@@ -156,7 +156,7 @@ public class Modele {
     }
 
     /**
-     * methode qui permet de modifier un cours 
+     * methode qui permet de modifier un cours
      *
      * @param reCours nouveau cours
      * @param tmp est le cours qui sera remplacée par le nouveau cours 'reCours'
@@ -176,7 +176,7 @@ public class Modele {
     }
 
     /**
-     * methode qui permet de supprimer un enseignant 
+     * methode qui permet de supprimer un enseignant
      *
      * @param e l'enseignant à supprimer
      * @return le résultat de la suppression
@@ -193,20 +193,50 @@ public class Modele {
     }
 
     /**
-     *methode qui permet de supprimer un cours
+     * methode qui permet de supprimer un cours
      *
      * @param c est le cours à supprimer
      * @return le résultat de la suppression
      */
     public String suppCours(Cours c) {
-        int i = crs.indexOf(c);
+        /*int i = crs.indexOf(c);
         if (i < 0) {
             return "cours n'existe pas";
 
         } else {
             crs.remove(i);
         }
-        return "le cours a été supprimer";
+        return "le cours a été supprimer";*/
+
+        int i = crs.indexOf(c);
+        if (i < 0) {
+            return "crs introuvable";
+        }
+        Cours c2 = crs.get(i);
+
+        if (!c2.getEnseignants().isEmpty()) {
+
+            return "impossible, le cours a au moins un enseignant";
+
+        } else {
+            ens.remove(i);
+        }
+        return "Suppression effectuée";
+
+    }
+
+    public String suppCoursEns(Cours c) {
+
+        int i = crs.indexOf(c);
+        if (i < 0) {
+            return "cours introuvable";
+        }
+        Cours c2 = crs.get(i);
+
+        c2.getEnseignants().clear();
+
+        return "tous les enseignants du cours ont été supprimé";
+
     }
 
     /**
@@ -230,7 +260,8 @@ public class Modele {
     }
 
     /**
-     *methode qui affiche tous les groupes
+     * methode qui affiche tous les groupes
+     *
      * @return la liste des groupe contenant dans groupe
      */
     public List<Groupe> tousLesGroupe() {
@@ -245,8 +276,8 @@ public class Modele {
      * @return la liste cours trier
      */
     public List<Cours> tousLesCrs() {
-      crs.sort(new CoursComparator());
-      return crs;
+        crs.sort(new CoursComparator());
+        return crs;
     }
 
     /**
@@ -255,9 +286,9 @@ public class Modele {
      * @return la liste enseignant trier
      */
     public List<Enseignant> tousLesEnseignant() {
-      ens.sort(new EnseignantComparator());
-      return ens;
-   }
+        ens.sort(new EnseignantComparator());
+        return ens;
+    }
 
     /**
      *
@@ -270,7 +301,7 @@ public class Modele {
 
         return msg;
     }
-    
+
     /**
      *
      * @param c est le cours
