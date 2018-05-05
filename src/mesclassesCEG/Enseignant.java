@@ -35,7 +35,7 @@ public class Enseignant {
     /**
      * Liste des cours que l'enseignant dispense
      */
-    protected List<Cours> cours = new ArrayList();
+    //protected List<Cours> cours = new ArrayList();
 
     /**
      * Constructeur paramétré de tous les informations
@@ -121,18 +121,18 @@ public class Enseignant {
      * @return renvoi le cours
      */
     
-    public List<Cours> getCours() {
+    /*public List<Cours> getCours() {
         return cours;
-    }
+    }*/
 
     /**
      * Setter du prénom
      *
      * @param cours affecte le cours
      */
-    public void setCours(List<Cours> cours) {
+    /*public void setCours(List<Cours> cours) {
         this.cours = cours;
-    }
+    }*/
 
 
 
@@ -179,7 +179,7 @@ public class Enseignant {
      */
     @Override
     public String toString() {
-        return "Enseignant{" + "matricule=" + matricule + ", nom=" + nom + ", prenom=" + prenom + ", cours=" + cours + '}';
+        return "Enseignant{" + "matricule=" + matricule + ", nom=" + nom + ", prenom=" + prenom + '}';
     }
     
     

@@ -68,16 +68,17 @@ public class Controleur {
                 case 8:modifCrs();break;
                 case 9:supprimerCrs();break;
                 case 10:supprimerCrsEns();break;
-                case 11:rechEns();break;
-                case 12:rechCours();break;
-                case 13:rechGroupe();break;
-                case 14:listeEns();break;
-                case 15:listeCrs();break;
-                case 16:listeGrp();break;
-                case 17:v.affMsg("Fin");break;
+                case 11:supprimerCrsGrp();break;
+                case 12:rechEns();break;
+                case 13:rechCours();break;
+                case 14:rechGroupe();break;
+                case 15:listeEns();break;
+                case 16:listeCrs();break;
+                case 17:listeGrp();break;
+                case 18:v.affMsg("Fin");break;
                 default:v.affMsg("Choix invalide");
             }
-        } while (ch != 17);
+        } while (ch != 18);
 
     }
 
@@ -280,7 +281,8 @@ public class Controleur {
         v.affMsg(m.suppCours(tmp));
 
     }
-
+    
+    
     private void supprimerCrsEns() {
         Cours cRech = v.rechCours();
         Cours tmp = m.getCours(cRech);
@@ -297,6 +299,28 @@ public class Controleur {
         }
         }
     }
+    
+    
+    
+    private void supprimerCrsGrp() {
+        Cours cRech = v.rechCours();
+        Cours tmp = m.getCours(cRech);
+        if (tmp==null) {
+            v.affMsg("Cours n'existe pas ");
+        }else{
+        String ch = v.supCoursGrp();
+        if (ch=="non") {
+            v.affMsg("La suppression a été annuler");
+        } else {
+            v.affMsg("** Suppression de tous les groupe ** ");
+            v.affMsg(tmp);
+            v.affMsg(m.suppCoursGrp(tmp));
+        }
+        }
+    }
+    
+    
+    
 
     /**
      * methode qui affiche toute la liste des enseignants

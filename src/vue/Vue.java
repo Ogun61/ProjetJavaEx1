@@ -40,6 +40,7 @@ public class Vue {
                 "Modifier cours",
                 "Supprimer cours",
                 "Supprimer tous les enseignants du cours",
+                "Supprimer tous les groupes du cours",
                 "Recherche enseignants",
                 "Recherche cours",
                 "Recherche groupe",
@@ -248,7 +249,15 @@ public class Vue {
      
      public String supCoursEns() {
         affMsg("** Attention cette action supprimera tous les enseignants du cours. Pour annuler l'opération entrez 'non' ** ");
-        String ch = getMsg("Pour supprimer ts les ens entrez 'oui'(0 pour annuler) . ");
+        String ch = getMsg("Pour supprimer tous les ensignants entrez 'oui'(0 pour annuler) . ");
+        //int choix = Integer.parseInt(ch);
+        return ch;
+
+    }
+     
+     public String supCoursGrp() {
+        affMsg("** Attention cette action supprimera tous les groupe du cours. Pour annuler l'opération entrez 'non' ** ");
+        String ch = getMsg("Pour supprimer touss les groupes entrez 'oui'(0 pour annuler) . ");
         //int choix = Integer.parseInt(ch);
         return ch;
 

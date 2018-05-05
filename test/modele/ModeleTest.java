@@ -196,7 +196,7 @@ public class ModeleTest {
     /**
      * Test of tousLesEns method, of class Modele.
      */
-    @Test
+    //@Test
     public void testTousLesEns() {
         System.out.println("tousLesEns");
         List<Enseignant> expResult = new ArrayList<>();

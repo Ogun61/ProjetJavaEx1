@@ -238,26 +238,21 @@ public class Modele {
         return "tous les enseignants du cours ont été supprimé";
 
     }
+    
+    public String suppCoursGrp(Cours c) {
 
-    /**
-     * methode qui affiche tousLesEnseignants
-     *
-     * @return la liste des enseigannt contenant dans ens
-     */
-    public List<Enseignant> tousLesEns() {
-        return ens;
-    }
+        int i = crs.indexOf(c);
+        if (i < 0) {
+            return "cours introuvable";
+        }
+        Cours c2 = crs.get(i);
 
-    /**
-     * methode qui affiche tous les cours
-     *
-     * @return la liste des cours contenant dans crs
-     */
-    public List<Cours> tousLesCours() {
+        c2.getGroupe().clear();
 
-        return crs;
+        return "tous les groupes du cours ont été supprimé";
 
     }
+
 
     /**
      * methode qui affiche tous les groupes
