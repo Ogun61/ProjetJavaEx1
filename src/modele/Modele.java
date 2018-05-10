@@ -29,14 +29,20 @@ public class Modele {
      * Liste de tous les groupes
      */
     private final List<Groupe> groupe = new ArrayList<>();
+    
+      private static Modele instance = null;
 
     /**
-     * constructeur par défaut
+     * Méthode qui récupère l'instance de ClasseModele
+     * @return instanciation d'un modèle ou modèle courant
      */
-    public Modele() {
-
-    }
-
+    public static Modele getInstance() {
+        if (instance == null) {
+            return instance = new Modele();
+        } else {
+            return instance;
+        }
+}
     /**
      * methode qui permet l'ajout d'un enseignant dans la liste des enseignants
      *
@@ -105,6 +111,22 @@ public class Modele {
             return crs.get(i);
         }
     }
+    
+    
+    public List<Cours> getEnseignantCours(Enseignant e){
+      List<Cours> listec =new ArrayList<>();
+      List<Enseignant> listee =new ArrayList<>();
+      if(e==null)return listec;
+      if(crs.isEmpty())return listec;
+     
+      for(Cours c :crs){
+            listee=c.getEnseignants();
+            if(listee.equals(c))listec.add(c);
+      }
+      if(listec.isEmpty())return null;
+      return listec;
+     
+  }
 
     /**
      * Méthode getGroupe permet de rechercher le groupe

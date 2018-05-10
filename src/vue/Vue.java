@@ -113,14 +113,21 @@ public class Vue {
      * @return c retourne le cours crée a partir des informations rentrée
      */
     public Cours ajoutCours() {
+        Cours cb = null;
         String codec = getMsg("Code cours ? ");
         String nbr = getMsg("nombre d'heure ? ");
         int nbrh = Integer.parseInt(nbr);
         String intitule = getMsg("intitule du cours ? ");
 
-        Cours c = new Cours(codec,nbrh,intitule);
-
-        return c;
+        Cours.CoursBuilder c = new Cours.CoursBuilder();
+        c.setCodec(codec).setNbrha(nbrh).setIntitulec(intitule);
+        try{
+            cb = c.build();
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la création du cours" +e);
+        }
+        return cb;
+        
     }
     
     public Groupe ajoutGroupe() {
@@ -217,10 +224,17 @@ public class Vue {
      * @return le cours trouvé "cRech"
      */
     public Cours rechCours() {
-
+        Cours cRech = null;
         String codec = getMsg("code du cours à rechercher ? ");
-        Cours cRech = new Cours(codec);
-        return cRech;
+        Cours.CoursBuilder c = new Cours.CoursBuilder();
+        c.setCodec(codec);
+        try {
+            cRech = c.build();
+            return cRech;
+        } catch (Exception e) {
+            System.out.println("Erreur de création du cours" + e);
+        }
+        return null;
 
     }
     
