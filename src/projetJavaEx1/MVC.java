@@ -1,25 +1,46 @@
 package projetjavaex1;
 
 import controleur.Controleur;
+import java.util.Scanner;
 import modele.Modele;
+import modele.ModeleJdbc;
 import vue.Vue;
 
-
 public class MVC {
+
     private final Controleur c;
-    private final Vue v;
-    private final Modele m;
-    
-    public MVC(){
-        
-        v=new Vue();
-        m=new Modele();
-        c=new Controleur(m,v);
+    private Vue v;
+    private Modele m;
+
+    public MVC(int ch) {
+
+        v = new Vue();
+        m = new Modele();
+        switch (ch) {
+            case 1:
+                m = new Modele();
+                break;
+            case 2:
+                m = new ModeleJdbc();
+                break;
+            default:
+                System.out.println("mode incorrect");
+                System.exit(1);
+        }
+
+        c = new Controleur(m, v);
         c.menu();
+        if (m instanceof ModeleJdbc) {
+            ((ModeleJdbc) m).close();
+        }
+
     }
-   
+
     public static void main(String[] args) {
-        MVC mvc=new MVC();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("1: Modele 2:ModeleJdbc ");
+        int ch = sc.nextInt();
+        MVC mvc = new MVC(ch);
     }
-    
+
 }

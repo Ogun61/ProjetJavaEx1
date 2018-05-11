@@ -125,7 +125,6 @@ public class ModeleJdbc extends Modele {
 
     @Override
     public Enseignant getEnseignant(Enseignant eRech) {
-        
 
         String query = "select * from Enseignant where MATRICULE= ? ";
         PreparedStatement pstm = null;
@@ -209,6 +208,100 @@ public class ModeleJdbc extends Modele {
                 System.err.println("erreur de fermeture de preparedstatement " + e);
             }
         }
+    }
+
+    @Override
+    public String ajoutEns(Enseignant e1) {
+        String msg;
+        String query = "insert into Enseignant(MATRICULE,NOM,PRENOM) values(?,?,?)";
+        PreparedStatement pstm = null;
+        try {
+            pstm = dbconnect.prepareStatement(query);
+            pstm.setString(1, e1.getMatricule());
+            pstm.setString(2, e1.getNom());
+            pstm.setString(3, e1.getPrenom());
+
+            int n = pstm.executeUpdate();
+            if (n == 1) {
+                msg = "ajout enseignant effectué";
+            } else {
+                msg = "ajout enseignant non effectué";
+            }
+        } catch (SQLException e) {
+            msg = "erreur lors de l'ajout du client " + e;
+        } finally {
+
+            try {
+                if (pstm != null) {
+                    pstm.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("erreur de fermeture de preparedstatement " + e);
+            }
+        }
+        return msg;
+    }
+
+    @Override
+    public String ajoutCours(Cours c) {
+        String msg;
+        String query = "insert into Cours(codec,nbrha,intitulex) values(?,?,?)";
+        PreparedStatement pstm = null;
+        try {
+            pstm = dbconnect.prepareStatement(query);
+            pstm.setString(1, c.getCodec());
+            pstm.setInt(2, c.getNbrha());
+            pstm.setString(3, c.getIntitulec());
+            int n = pstm.executeUpdate();
+            if (n == 1) {
+                msg = "Ajout du cours effectué";
+            } else {
+                msg = "Ajout cours non effectué ";
+            }
+        } catch (SQLException e) {
+            msg = "erreur lors de l'ajout du cours" + e;
+        } finally {
+
+            try {
+                if (pstm != null) {
+                    pstm.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("erreur de fermeture de preparedstatement " + e);
+            }
+        }
+        return msg;
+    }
+
+    @Override
+    public String suppEns(Enseignant e1) {
+        String query = "DELETE FROM ENSEIGNANT WHERE MATRICULE = ? ";
+        PreparedStatement pstm = null;
+        String msg;
+        try {
+            pstm = dbconnect.prepareStatement(query);
+            pstm.setString(1, e1.getMatricule());
+            int n = pstm.executeUpdate();
+            if (n == 1) {
+                msg = "Suppression effectuée ";
+            } else {
+                msg = "Suppression non effectuée";
+            }
+
+        } catch (SQLException e) {
+            msg = "erreur lors de la suppression " + e;
+        } finally {
+
+            try {
+                if (pstm != null) {
+                    pstm.close();
+                }
+            } catch (SQLException e) {
+                msg = "erreur de fermeture de preparedstatement " + e;
+            }
+
+        }
+        return msg;
     }
 
 }
