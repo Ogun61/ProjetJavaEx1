@@ -38,7 +38,7 @@ public class MVC {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("1: Modele 2:ModeleJdbc ");
+        System.out.println("1: Modele\n2: ModeleJdbc ");
         int ch = sc.nextInt();
         MVC mvc = new MVC(ch);
     }
