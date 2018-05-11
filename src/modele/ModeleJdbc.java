@@ -82,6 +82,54 @@ public class ModeleJdbc extends Modele {
     }
 
     @Override
+    public List<Cours> tousLesCrs() {
+
+        String query = "select * from cours order by matricule";
+        List<Cours> lc = new ArrayList<>();
+        Statement stm = null;
+        ResultSet rs = null;
+        try {
+            stm = dbconnect.createStatement();
+            rs = stm.executeQuery(query);
+            while (rs.next()) {
+                String codec = rs.getString(1);
+                int nbrha = rs.getInt(2);
+                String intitule = rs.getString(3);
+                Cours cours = null;
+
+                Cours.CoursBuilder c = new Cours.CoursBuilder();
+                c.setCodec(codec).setNbrha(nbrha).setIntitulec(intitule);
+                try {
+                    cours = c.build();
+
+                } catch (Exception e) {
+                    System.out.println("Erreur de création" + e);
+                }
+
+                lc.add(cours);
+            }
+        } catch (SQLException e) {
+            System.err.println("erreur lors de la recherche de la classe " + e);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("erreur de fermeture de resultset " + e);
+            }
+            try {
+                if (stm != null) {
+                    stm.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("erreur de fermeture de statement " + e);
+            }
+        }
+        return lc;
+    }
+
+    @Override
     public List<Cours> getEnseignantCours(Enseignant e1) {
         String query = "select C.CODEC,E.NBRHA,C.INTITULEC,V.CODE_GROUPE from COURS  C "
                 + "inner join ENSEIGNE E ON C.CODEC = E.CODE_COURS " + " inner join ENSEIGNANT ENS on E.MATRICULE_E = ENS.MATRICULE where ENS.MATRICULE= ? ";
@@ -290,6 +338,77 @@ public class ModeleJdbc extends Modele {
 
         } catch (SQLException e) {
             msg = "erreur lors de la suppression " + e;
+        } finally {
+
+            try {
+                if (pstm != null) {
+                    pstm.close();
+                }
+            } catch (SQLException e) {
+                msg = "erreur de fermeture de preparedstatement " + e;
+            }
+
+        }
+        return msg;
+    }
+
+    @Override
+    public String suppCours(Cours c) {
+        String query = "delete from cours where codec = ? ";
+        PreparedStatement pstm = null;
+        String msg;
+        try {
+            pstm = dbconnect.prepareStatement(query);
+            pstm.setString(1, c.getCodec());
+            int n = pstm.executeUpdate();
+            if (n == 1) {
+                msg = "Suppression effectuée ";
+            } else {
+                msg = "Suppression non effectuée";
+            }
+
+        } catch (SQLException e) {
+            msg = "erreur lors de la suppression " + e;
+        } finally {
+
+            try {
+                if (pstm != null) {
+                    pstm.close();
+                }
+            } catch (SQLException e) {
+                msg = "erreur de fermeture de preparedstatement " + e;
+            }
+
+        }
+        return msg;
+    }
+
+    @Override
+    public String modifCours(Cours nvCours, Cours tmp) {
+
+        String codec = null;
+        String query = "UPDATE cours set codec = ?, nbrha = ?, intitulec = ?, where codec = ?";
+        codec = tmp.getCodec();
+        PreparedStatement pstm = null;
+        String msg;
+        try {
+
+            pstm = dbconnect.prepareStatement(query);
+            pstm.setString(1, nvCours.getCodec());
+            pstm.setInt(2, nvCours.getNbrha());
+            pstm.setString(3, nvCours.getIntitulec());
+            pstm.setString(4, tmp.getCodec());
+            
+            int nl = pstm.executeUpdate();
+
+            if (nl == 1) {
+                msg = "modification du cours effectué";
+            } else {
+                msg = "modification du cours non effectué";
+            }
+
+        } catch (SQLException e) {
+            msg = "erreur lors de la modification du cours " + e;
         } finally {
 
             try {
