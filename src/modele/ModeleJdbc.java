@@ -9,11 +9,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import mesclassesCEG.Cours;
 import mesclassesCEG.Enseignant;
+import mesclassesCEG.Groupe;
 import myconnections.DBConnection;
 
 /**
@@ -82,6 +84,45 @@ public class ModeleJdbc extends Modele {
     }
 
     @Override
+    public List<Groupe> tousLesGroupe() {
+        String query = "select * from groupe order by codegr ";
+        List<Groupe> lg = new ArrayList<>();
+        Statement stm = null;
+        ResultSet rs = null;
+        try {
+            stm = dbconnect.createStatement();
+            rs = stm.executeQuery(query);
+            while (rs.next()) {
+                String codegr = rs.getString(1);
+                String intitule = rs.getString(2);
+                String niveau = rs.getString(3);
+
+                Groupe g = new Groupe(codegr, intitule, niveau);
+
+                lg.add(g);
+            }
+        } catch (SQLException e) {
+            System.err.println("erreur lors de la recherche des groupes " + e);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("erreur de fermeture de resultset " + e);
+            }
+            try {
+                if (stm != null) {
+                    stm.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("erreur de fermeture de statement " + e);
+            }
+        }
+        return lg;
+    }
+
+    @Override
     public List<Cours> tousLesCrs() {
 
         String query = "select * from cours order by matricule";
@@ -131,7 +172,8 @@ public class ModeleJdbc extends Modele {
 
     @Override
     public List<Cours> getEnseignantCours(Enseignant e1) {
-        String query = "select C.CODEC,E.NBRHA,C.INTITULEC,V.CODE_GROUPE from COURS  C "
+        Cours cb = null;
+        String query = "select C.CODEC,C.NBRHA,C.INTITULEC from COURS  C "
                 + "inner join ENSEIGNE E ON C.CODEC = E.CODE_COURS " + " inner join ENSEIGNANT ENS on E.MATRICULE_E = ENS.MATRICULE where ENS.MATRICULE= ? ";
         PreparedStatement pstm = null;
         ResultSet rs = null;
@@ -144,9 +186,64 @@ public class ModeleJdbc extends Modele {
                 String codec = rs.getString(1);
                 int nbr = rs.getInt(2);
                 String intitulec = rs.getString(3);
-                Cours c = new Cours(codec, nbr, intitulec);
-                c.assignation(e1);
-                lc.add(c);
+                Cours.CoursBuilder c = new Cours.CoursBuilder();
+                c.setCodec(codec).setNbrha(nbr).setIntitulec(intitulec);
+                try {
+                    cb = c.build();
+                } catch (Exception e) {
+                    System.out.println("Erreur de création" + e);
+                }
+                cb.assignation(e1);
+                lc.add(cb);
+            }
+            return lc;
+        } catch (SQLException e) {
+            System.err.println("erreur de recherche de cours " + e);
+            return null;
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("erreur de fermeture de resultset " + e);
+            }
+            try {
+                if (pstm != null) {
+                    pstm.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("erreur de fermeture de preparedstatement " + e);
+            }
+        }
+
+    }
+
+    @Override
+    public List<Cours> getGroupeCours(Groupe g) {
+        Cours cb = null;
+        String query = "select C.CODEC,C.NBRHA,C.INTITULEC from COURS  C "
+                + "inner join groupe g ON c.code_groupe = g.code_groupe where codegr = ? ";
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        List<Cours> lc = new ArrayList<>();
+        try {
+            pstm = dbconnect.prepareStatement(query);
+            pstm.setString(1, g.getCodegr());
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                String codec = rs.getString(1);
+                int nbr = rs.getInt(2);
+                String intitulec = rs.getString(3);
+                Cours.CoursBuilder c = new Cours.CoursBuilder();
+                c.setCodec(codec).setNbrha(nbr).setIntitulec(intitulec);
+                try {
+                    cb = c.build();
+                } catch (Exception e) {
+                    System.out.println("Erreur de création" + e);
+                }
+                cb.appartient(g);
+                lc.add(cb);
             }
             return lc;
         } catch (SQLException e) {
@@ -210,6 +307,46 @@ public class ModeleJdbc extends Modele {
         }
 
         return el;
+    }
+
+    @Override
+    public Groupe getGroupe(Groupe gRech) {
+
+        String query = "select * from groupe where codegr= ? ";
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        Groupe g = null;
+        try {
+            pstm = dbconnect.prepareStatement(query);
+            pstm.setString(1, gRech.getCodegr());
+            rs = pstm.executeQuery();
+            if (rs.next()) {
+                String codegr = rs.getString(1);
+                String intitule = rs.getString(2);
+                String niveau = rs.getString(3);
+                g = new Groupe(codegr, intitule, niveau);
+
+            }
+        } catch (SQLException e) {
+            System.err.println("erreur lors de la recherche du groupe " + e);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("erreur de fermeture de resultset " + e);
+            }
+            try {
+                if (pstm != null) {
+                    pstm.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("erreur de fermeture de preparedstatement " + e);
+            }
+        }
+
+        return g;
     }
 
     @Override
@@ -322,6 +459,111 @@ public class ModeleJdbc extends Modele {
     }
 
     @Override
+    public String ajoutGroupe(Groupe g) {
+        String msg;
+        String query = "insert into Groupe(codegr,intitulegr,niveau) values(?,?,?)";
+        PreparedStatement pstm = null;
+        try {
+            pstm = dbconnect.prepareStatement(query);
+            pstm.setString(1, g.getCodegr());
+            pstm.setString(2, g.getIntitulegr());
+            pstm.setString(3, g.getNiveau());
+
+            int n = pstm.executeUpdate();
+            if (n == 1) {
+                msg = "ajout groupe effectué";
+            } else {
+                msg = "ajout groupe non effectué";
+            }
+        } catch (SQLException e) {
+            msg = "erreur lors de l'ajout du client " + e;
+        } finally {
+
+            try {
+                if (pstm != null) {
+                    pstm.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("erreur de fermeture de preparedstatement " + e);
+            }
+        }
+        return msg;
+    }
+
+    @Override
+    public String suppGrp(Groupe g) {
+        String query = "DELETE FROM GROUPE WHERE CODEGR = ? ";
+        PreparedStatement pstm = null;
+        String msg;
+        try {
+            pstm = dbconnect.prepareStatement(query);
+            pstm.setString(1, g.getCodegr());
+            int n = pstm.executeUpdate();
+            if (n == 1) {
+                msg = "Suppression effectuée ";
+            } else {
+                msg = "Suppression non effectuée";
+            }
+
+        } catch (SQLException e) {
+            msg = "erreur lors de la suppression " + e;
+        } finally {
+
+            try {
+                if (pstm != null) {
+                    pstm.close();
+                }
+            } catch (SQLException e) {
+                msg = "erreur de fermeture de preparedstatement " + e;
+            }
+
+        }
+        return msg;
+    }
+
+    @Override
+    public String modifGrp(Groupe nvGrp, Groupe tmp) {
+
+        String query = "update groupe set codegr = ?, intitulegr = ? , niveau = ? where codegr = ?";
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        String msg;
+        String codegr = nvGrp.getCodegr();
+        String intitulegr = nvGrp.getIntitulegr();
+        String niveau = nvGrp.getNiveau();
+
+        try {
+            pstm = dbconnect.prepareStatement(query);
+            pstm.setString(1, codegr);
+            pstm.setString(2, intitulegr);
+            pstm.setString(3, niveau);
+            pstm.setString(5, tmp.getCodegr());
+            int nl = pstm.executeUpdate();
+            if (nl == 1) {
+                msg = "changement groupe effectué";
+            } else {
+                msg = "changement groupe non effectué";
+            }
+
+        } catch (SQLIntegrityConstraintViolationException pk) {
+            return "Erreur de clé primaire" + pk;
+        } catch (SQLException e) {
+            msg = "erreur lors de la modification du groupe " + e;
+        } finally {
+
+            try {
+                if (pstm != null) {
+                    pstm.close();
+                }
+            } catch (SQLException e) {
+                msg = "erreur de fermeture de preparedstatement " + e;
+            }
+
+        }
+        return msg;
+    }
+
+    @Override
     public String suppEns(Enseignant e1) {
         String query = "DELETE FROM ENSEIGNANT WHERE MATRICULE = ? ";
         PreparedStatement pstm = null;
@@ -398,7 +640,7 @@ public class ModeleJdbc extends Modele {
             pstm.setInt(2, nvCours.getNbrha());
             pstm.setString(3, nvCours.getIntitulec());
             pstm.setString(4, tmp.getCodec());
-            
+
             int nl = pstm.executeUpdate();
 
             if (nl == 1) {
@@ -407,8 +649,52 @@ public class ModeleJdbc extends Modele {
                 msg = "modification du cours non effectué";
             }
 
+        } catch (SQLIntegrityConstraintViolationException pk) {
+            return "Erreur de clé primaire" + pk;
         } catch (SQLException e) {
             msg = "erreur lors de la modification du cours " + e;
+        } finally {
+
+            try {
+                if (pstm != null) {
+                    pstm.close();
+                }
+            } catch (SQLException e) {
+                msg = "erreur de fermeture de preparedstatement " + e;
+            }
+
+        }
+        return msg;
+    }
+
+    @Override
+    public String modifEns(Enseignant nvEns, Enseignant tmp) {
+
+        String query = "update enseignant set matricule = ?, nom = ? , prenom = ? where matricule = ?";
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        String msg;
+        String matricule = nvEns.getMatricule();
+        String nom = nvEns.getNom();
+        String prenom = nvEns.getPrenom();
+
+        try {
+            pstm = dbconnect.prepareStatement(query);
+            pstm.setString(1, matricule);
+            pstm.setString(2, nom);
+            pstm.setString(3, prenom);
+            pstm.setString(4, tmp.getMatricule());
+            int nl = pstm.executeUpdate();
+            if (nl == 1) {
+                msg = "changement de l'enseignant effectué";
+            } else {
+                msg = "changement de l'enseignant non effectué";
+            }
+
+        } catch (SQLIntegrityConstraintViolationException pk) {
+            return "Erreur de clé primaire" + pk;
+        } catch (SQLException e) {
+            msg = "erreur lors de la modification de l'enseignant " + e;
         } finally {
 
             try {

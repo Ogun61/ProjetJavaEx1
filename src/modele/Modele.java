@@ -127,6 +127,21 @@ public class Modele {
       return listec;
      
   }
+    
+        public List<Cours> getGroupeCours(Groupe g){
+      List<Cours> listec =new ArrayList<>();
+      List<Groupe> listeg =new ArrayList<>();
+      if(g==null)return listec;
+      if(crs.isEmpty())return listec;
+     
+      for(Cours c :crs){
+            listeg=c.getGroupe();
+            if(listeg.equals(c))listec.add(c);
+      }
+      if(listec.isEmpty())return null;
+      return listec;
+     
+  }
 
     /**
      * Méthode getGroupe permet de rechercher le groupe
@@ -176,6 +191,19 @@ public class Modele {
         return "l'enseignant a été modifier";
 
     }
+    
+        public String modifGrp(Groupe nvGrp, Groupe tmp) {
+        int i = groupe.indexOf(tmp);
+        if (i < 0) {
+            return "groupe n'existe pas ?";
+
+        } else {
+            groupe.set(i, nvGrp);
+        }
+        return "groupe a été modifier";
+
+    }
+
 
     /**
      * methode qui permet de modifier un cours
@@ -212,6 +240,17 @@ public class Modele {
             ens.remove(i);
         }
         return "Enseignant a été supprimer";
+    }
+    
+        public String suppGrp(Groupe g) {
+        int i = groupe.indexOf(g);
+        if (i < 0) {
+            return "Groupe introuvable";
+
+        } else {
+            groupe.remove(i);
+        }
+        return "Groupe a été supprimer";
     }
 
     /**

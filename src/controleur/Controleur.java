@@ -65,20 +65,22 @@ public class Controleur {
                 case 5:assignGroupe();break;
                 case 6:modifEns();break;
                 case 7:supprimerEns();break;
-                case 8:modifCrs();break;
-                case 9:supprimerCrs();break;
-                case 10:supprimerCrsEns();break;
-                case 11:supprimerCrsGrp();break;
-                case 12:rechEns();break;
-                case 13:rechCours();break;
-                case 14:rechGroupe();break;
-                case 15:listeEns();break;
-                case 16:listeCrs();break;
-                case 17:listeGrp();break;
-                case 18:v.affMsg("Fin");break;
+                case 8:modifGrp();break;
+                case 9:supprimerGrp();break;
+                case 10:modifCrs();break;
+                case 11:supprimerCrs();break;
+                case 12:supprimerCrsEns();break;
+                case 13:supprimerCrsGrp();break;
+                case 14:rechEns();break;
+                case 15:rechCours();break;
+                case 16:rechGroupe();break;
+                case 17:listeEns();break;
+                case 18:listeCrs();break;
+                case 19:listeGrp();break;
+                case 20:v.affMsg("Fin");break;
                 default:v.affMsg("Choix invalide");
             }
-        } while (ch != 18);
+        } while (ch != 20);
 
     }
 
@@ -253,6 +255,27 @@ public class Controleur {
         v.affMsg(tmp);
         Enseignant nvEns = v.ajtEns();
         v.affMsg(m.modifEns(nvEns, tmp));
+
+    }
+    
+    
+       private void modifGrp() {
+        Groupe gRech = v.rechGroupe();
+        Groupe tmp = m.getGroupe(gRech);
+        v.affMsg("***Modification du groupe***");
+
+        v.affMsg(tmp);
+        Groupe nvGrp = v.ajoutGroupe();
+        v.affMsg(m.modifGrp(nvGrp, tmp));
+
+    }
+       
+           private void supprimerGrp() {
+        Groupe gRech = v.rechGroupe();
+        Groupe tmp = m.getGroupe(gRech);
+        v.affMsg("** Suppression du groupe***");
+        v.affMsg(tmp);
+        v.affMsg(m.suppGrp(tmp));
 
     }
 

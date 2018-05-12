@@ -37,6 +37,8 @@ public class Vue {
                 "Attribuer cours à un groupe",
                 "Modifier enseignants",
                 "Supprimer enseignants",
+                "Modifier groupe",
+                "Supprimer groupe",
                 "Modifier cours",
                 "Supprimer cours",
                 "Supprimer tous les enseignants du cours",
