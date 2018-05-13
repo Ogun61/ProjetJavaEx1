@@ -177,9 +177,11 @@ public class Vue {
      * @param e est l'enseignant à afficher
      */
     public void affEnseignant(Enseignant e) {
+        affMsg("Matricule  :" + e.getMatricule());
         affMsg("Nom de l'enseignant :" + e.getNom());
         affMsg("Prénom de l'enseignant :" + e.getPrenom());
-        affMsg("Matricule  :" + e.getMatricule());
+        
+        
 
     }
     

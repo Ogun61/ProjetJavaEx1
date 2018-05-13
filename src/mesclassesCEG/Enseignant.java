@@ -179,7 +179,7 @@ public class Enseignant {
      */
     @Override
     public String toString() {
-        return "Enseignant{" + "matricule=" + matricule + ", nom=" + nom + ", prenom=" + prenom + '}';
+        return "Enseignant{" + "Nom=" + nom + ", prenom=" + prenom + ", matricule=" + matricule + '}';
     }
     
     

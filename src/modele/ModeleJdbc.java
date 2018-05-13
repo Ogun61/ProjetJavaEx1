@@ -125,7 +125,7 @@ public class ModeleJdbc extends Modele {
     @Override
     public List<Cours> tousLesCrs() {
 
-        String query = "select * from cours order by matricule";
+        String query = "select * from cours order by codec";
         List<Cours> lc = new ArrayList<>();
         Statement stm = null;
         ResultSet rs = null;
@@ -284,7 +284,7 @@ public class ModeleJdbc extends Modele {
                 String nom = rs.getString(2);
                 String prenom = rs.getString(3);
 
-                el = new Enseignant(mat, nom, prenom);
+                el = new Enseignant(nom, prenom, mat);
 
             }
         } catch (SQLException e) {
@@ -352,7 +352,7 @@ public class ModeleJdbc extends Modele {
     @Override
     public Cours getCours(Cours xRech) {
         Cours cb = null;
-        String query = "semect * from cours where codec = ?";
+        String query = "select * from cours where codec = ?";
         PreparedStatement pstm = null;
         ResultSet rs = null;
         try {
@@ -430,7 +430,7 @@ public class ModeleJdbc extends Modele {
     @Override
     public String ajoutCours(Cours c) {
         String msg;
-        String query = "insert into Cours(codec,nbrha,intitulex) values(?,?,?)";
+        String query = "insert into Cours(codec,nbrha,intitulec) values(?,?,?)";
         PreparedStatement pstm = null;
         try {
             pstm = dbconnect.prepareStatement(query);
@@ -627,44 +627,48 @@ public class ModeleJdbc extends Modele {
 
     @Override
     public String modifCours(Cours nvCours, Cours tmp) {
+        boolean flag;
 
-        String codec = null;
-        String query = "UPDATE cours set codec = ?, nbrha = ?, intitulec = ?, where codec = ?";
-        codec = tmp.getCodec();
+        String query = "update cours set codec = ?, nbrha = ? , intitulec = ? where codec = ?";
         PreparedStatement pstm = null;
+        ResultSet rs = null;
         String msg;
-        try {
-
-            pstm = dbconnect.prepareStatement(query);
-            pstm.setString(1, nvCours.getCodec());
-            pstm.setInt(2, nvCours.getNbrha());
-            pstm.setString(3, nvCours.getIntitulec());
-            pstm.setString(4, tmp.getCodec());
-
-            int nl = pstm.executeUpdate();
-
-            if (nl == 1) {
-                msg = "modification du cours effectué";
-            } else {
-                msg = "modification du cours non effectué";
-            }
-
-        } catch (SQLIntegrityConstraintViolationException pk) {
-            return "Erreur de clé primaire" + pk;
-        } catch (SQLException e) {
-            msg = "erreur lors de la modification du cours " + e;
-        } finally {
-
+        String codec = nvCours.getCodec();
+        int nbrha = nvCours.getNbrha();
+        String intitulec = nvCours.getIntitulec();
+        do {
             try {
-                if (pstm != null) {
-                    pstm.close();
+                pstm = dbconnect.prepareStatement(query);
+                pstm.setString(1, codec);
+                pstm.setInt(2, nbrha);
+                pstm.setString(3, intitulec);
+                pstm.setString(4, tmp.getCodec());
+                int n = pstm.executeUpdate();
+                if (n == 1) {
+                    msg = "changement du cours effectué";
+                    flag = false;
+                } else {
+                    flag = true;
+                    msg = "changement du cours non effectué";
                 }
-            } catch (SQLException e) {
-                msg = "erreur de fermeture de preparedstatement " + e;
-            }
 
-        }
-        return msg;
+            } catch (SQLIntegrityConstraintViolationException pk) {
+                return "Erreur de PK (" + pk + ")";
+            } catch (SQLException e) {
+                msg = "erreur lors du changement du cours " + e;
+            } finally {
+
+                try {
+                    if (pstm != null) {
+                        pstm.close();
+                    }
+                } catch (SQLException e) {
+                    msg = "erreur de fermeture de preparedstatement " + e;
+                }
+
+            }
+            return msg;
+        } while (flag);
     }
 
     @Override
@@ -705,6 +709,38 @@ public class ModeleJdbc extends Modele {
                 msg = "erreur de fermeture de preparedstatement " + e;
             }
 
+        }
+        return msg;
+    }
+
+    @Override
+    public String assignation(Cours c, Enseignant e1) {
+        super.assignation(c, e1);
+        String msg;
+        String query = "insert into enseigne(matricule_e,code_cours) values(?,?)";
+        PreparedStatement pstm = null;
+        try {
+            pstm = dbconnect.prepareStatement(query);
+            pstm.setString(1, e1.getMatricule());
+            pstm.setString(2, c.getCodec());
+
+            int nl = pstm.executeUpdate();
+            if (nl == 1) {
+                msg = "assignation de l'enseignant effectué";
+            } else {
+                msg = "assignation de l'enseignant non effectué";
+            }
+        } catch (SQLException e) {
+            msg = "erreur lors de l'assignation du cours " + e;
+        } finally {
+
+            try {
+                if (pstm != null) {
+                    pstm.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("erreur de fermeture de preparedstatement " + e);
+            }
         }
         return msg;
     }
