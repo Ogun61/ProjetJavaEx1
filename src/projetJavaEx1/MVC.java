@@ -1,10 +1,10 @@
 package projetjavaex1;
 
-import controleur.Controleur;
+import projetJavaEx1.controleur.Controleur;
 import java.util.Scanner;
-import modele.Modele;
-import modele.ModeleJdbc;
-import vue.Vue;
+import projetJavaEx1.modele.Modele;
+import projetJavaEx1.modele.ModeleJdbc;
+import projetJavaEx1.vue.Vue;
 
 public class MVC {
 

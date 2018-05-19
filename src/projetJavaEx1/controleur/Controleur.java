@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controleur;
+package projetJavaEx1.controleur;
 
-import mesclassesCEG.Cours;
-import mesclassesCEG.Enseignant;
-import modele.Modele;
-import vue.Vue;
+import projetJavaEx1.mesclassesCEG.Cours;
+import projetJavaEx1.mesclassesCEG.Enseignant;
+import projetJavaEx1.modele.Modele;
+import projetJavaEx1.vue.Vue;
 import java.util.List;
-import mesclassesCEG.Groupe;
+import projetJavaEx1.mesclassesCEG.Groupe;
 
 /**
  *

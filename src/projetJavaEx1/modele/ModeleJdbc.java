@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modele;
+package projetJavaEx1.modele;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,9 +13,9 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import mesclassesCEG.Cours;
-import mesclassesCEG.Enseignant;
-import mesclassesCEG.Groupe;
+import projetJavaEx1.mesclassesCEG.Cours;
+import projetJavaEx1.mesclassesCEG.Enseignant;
+import projetJavaEx1.mesclassesCEG.Groupe;
 import myconnections.DBConnection;
 
 /**
@@ -48,10 +48,9 @@ public class ModeleJdbc extends Modele {
 
         String query = "select * from ENSEIGNANT " + critere;
         List<Enseignant> le = new ArrayList<>();
-        Statement stm = null;
         ResultSet rs = null;
-        try {
-            stm = dbconnect.createStatement();
+        try(Statement stm = dbconnect.createStatement();) {
+            
             rs = stm.executeQuery(query);
             while (rs.next()) {
                 String mat = rs.getString(1);
@@ -64,21 +63,6 @@ public class ModeleJdbc extends Modele {
             }
         } catch (SQLException e) {
             System.err.println("erreur lors de la recherche des enseignants " + e);
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-            } catch (SQLException e) {
-                System.err.println("erreur de fermeture de resultset " + e);
-            }
-            try {
-                if (stm != null) {
-                    stm.close();
-                }
-            } catch (SQLException e) {
-                System.err.println("erreur de fermeture de statement " + e);
-            }
         }
         return le;
     }
@@ -87,10 +71,10 @@ public class ModeleJdbc extends Modele {
     public List<Groupe> tousLesGroupe() {
         String query = "select * from groupe order by codegr ";
         List<Groupe> lg = new ArrayList<>();
-        Statement stm = null;
+        
         ResultSet rs = null;
-        try {
-            stm = dbconnect.createStatement();
+        try(Statement stm = dbconnect.createStatement();) {
+            
             rs = stm.executeQuery(query);
             while (rs.next()) {
                 String codegr = rs.getString(1);
@@ -103,22 +87,7 @@ public class ModeleJdbc extends Modele {
             }
         } catch (SQLException e) {
             System.err.println("erreur lors de la recherche des groupes " + e);
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-            } catch (SQLException e) {
-                System.err.println("erreur de fermeture de resultset " + e);
-            }
-            try {
-                if (stm != null) {
-                    stm.close();
-                }
-            } catch (SQLException e) {
-                System.err.println("erreur de fermeture de statement " + e);
-            }
-        }
+        } 
         return lg;
     }
 
@@ -127,10 +96,10 @@ public class ModeleJdbc extends Modele {
 
         String query = "select * from cours order by codec";
         List<Cours> lc = new ArrayList<>();
-        Statement stm = null;
+        
         ResultSet rs = null;
-        try {
-            stm = dbconnect.createStatement();
+        try(Statement stm = dbconnect.createStatement();) {
+           
             rs = stm.executeQuery(query);
             while (rs.next()) {
                 String codec = rs.getString(1);
@@ -151,21 +120,6 @@ public class ModeleJdbc extends Modele {
             }
         } catch (SQLException e) {
             System.err.println("erreur lors de la recherche de la classe " + e);
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-            } catch (SQLException e) {
-                System.err.println("erreur de fermeture de resultset " + e);
-            }
-            try {
-                if (stm != null) {
-                    stm.close();
-                }
-            } catch (SQLException e) {
-                System.err.println("erreur de fermeture de statement " + e);
-            }
         }
         return lc;
     }

@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-package modele;
+package projetJavaEx1.modele;
 
 import java.util.Comparator;
-import mesclassesCEG.Enseignant;
+import projetJavaEx1.mesclassesCEG.Enseignant;
 
 /**
  *

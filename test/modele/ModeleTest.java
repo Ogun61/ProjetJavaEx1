@@ -5,11 +5,12 @@
  */
 package modele;
 
+import projetJavaEx1.modele.Modele;
 import java.util.ArrayList;
 import java.util.List;
-import mesclassesCEG.Cours;
-import mesclassesCEG.Enseignant;
-import mesclassesCEG.Groupe;
+import projetJavaEx1.mesclassesCEG.Cours;
+import projetJavaEx1.mesclassesCEG.Enseignant;
+import projetJavaEx1.mesclassesCEG.Groupe;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

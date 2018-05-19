@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modele;
+package projetJavaEx1.modele;
 
-import mesclassesCEG.Enseignant;
-import mesclassesCEG.Cours;
+import projetJavaEx1.mesclassesCEG.Enseignant;
+import projetJavaEx1.mesclassesCEG.Cours;
 import java.util.*;
-import mesclassesCEG.Groupe;
+import projetJavaEx1.mesclassesCEG.Groupe;
 
 /**
  *

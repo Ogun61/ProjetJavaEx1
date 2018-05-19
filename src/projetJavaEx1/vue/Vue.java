@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vue;
+package projetJavaEx1.vue;
 
-import mesclassesCEG.Cours;
-import mesclassesCEG.Enseignant;
+import projetJavaEx1.mesclassesCEG.Cours;
+import projetJavaEx1.mesclassesCEG.Enseignant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Collection;
 import java.util.Scanner;
-import mesclassesCEG.Groupe;
+import projetJavaEx1.mesclassesCEG.Groupe;
 
 /**
  *

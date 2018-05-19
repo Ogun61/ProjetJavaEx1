@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modele;
+package projetJavaEx1.modele;
 
 import java.util.Comparator;
-import mesclassesCEG.Cours;
+import projetJavaEx1.mesclassesCEG.Cours;
 
 /**
  *

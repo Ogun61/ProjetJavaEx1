@@ -1,4 +1,4 @@
-package mesclassesCEG;
+package projetJavaEx1.mesclassesCEG;
 
 import java.util.*;
 
