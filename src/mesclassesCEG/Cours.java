@@ -111,13 +111,11 @@ public class Cours {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 73 * hash + Objects.hashCode(this.codec);
-        hash = 73 * hash + this.nbrha;
-        hash = 73 * hash + Objects.hashCode(this.intitulec);
-        hash = 73 * hash + Objects.hashCode(this.enseignants);
-        hash = 73 * hash + Objects.hashCode(this.groupe);
+        hash = 31 * hash + Objects.hashCode(this.codec);
         return hash;
     }
+
+ 
 
     @Override
     public boolean equals(Object obj) {

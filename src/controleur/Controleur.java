@@ -333,7 +333,7 @@ public class Controleur {
         if ("non".equals(ch)) {
             v.affMsg("La suppression a été annuler");
         } else {
-            v.affMsg("** Suppression de tous les enseignants ** ");
+            v.affMsg("** Suppression de tous les cours de l'enseignants ** ");
             v.affMsg(tmp);
             v.affMsg(m.suppCoursEns(tmp));
         }

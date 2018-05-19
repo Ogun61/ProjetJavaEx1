@@ -74,12 +74,11 @@ public class Groupe {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 83 * hash + Objects.hashCode(this.codegr);
-        hash = 83 * hash + Objects.hashCode(this.intitulegr);
-        hash = 83 * hash + Objects.hashCode(this.niveau);
+        int hash = 3;
+        hash = 79 * hash + Objects.hashCode(this.codegr);
         return hash;
     }
+
 
     @Override
     public boolean equals(Object obj) {

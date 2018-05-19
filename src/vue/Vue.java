@@ -118,7 +118,7 @@ public class Vue {
      */
     public Cours ajoutCours() {
         Cours cb = null;
-        getMsg("Entrez '0' pour le code cours si modeleJdbc!");
+        //affMsg("Entrez '0' pour le code cours si modification du cours!");
         String codec = getMsg("Code cours ? ");
         String nbr = getMsg("nombre d'heure ? ");
         int nbrh = Integer.parseInt(nbr);
