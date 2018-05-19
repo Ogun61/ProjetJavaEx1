@@ -128,7 +128,7 @@ public class Modele {
      
   }
     
-        public List<Cours> getGroupeCours(Groupe g){
+    public List<Cours> getGroupeCours(Groupe g){
       List<Cours> listec =new ArrayList<>();
       List<Groupe> listeg =new ArrayList<>();
       if(g==null)return listec;

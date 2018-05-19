@@ -46,6 +46,8 @@ public class Vue {
                 "Recherche enseignants",
                 "Recherche cours",
                 "Recherche groupe",
+                "Affiche cours Enseignant",
+                "Affiche cours groupe",
                 "Liste tous enseignant",
                 "Liste tous les cours",
                 "Liste tous les groupe",
@@ -116,6 +118,7 @@ public class Vue {
      */
     public Cours ajoutCours() {
         Cours cb = null;
+        getMsg("Entrez '0' pour le code cours si modeleJdbc!");
         String codec = getMsg("Code cours ? ");
         String nbr = getMsg("nombre d'heure ? ");
         int nbrh = Integer.parseInt(nbr);

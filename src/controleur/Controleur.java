@@ -74,13 +74,15 @@ public class Controleur {
                 case 14:rechEns();break;
                 case 15:rechCours();break;
                 case 16:rechGroupe();break;
-                case 17:listeEns();break;
-                case 18:listeCrs();break;
-                case 19:listeGrp();break;
-                case 20:v.affMsg("Fin");break;
+                case 17:List<Cours> lc = affCrsEns(); v.affListe(lc);break;
+                case 18:List<Cours> lg = affCrsGrp(); v.affListe(lg);break;
+                case 19:listeEns();break;
+                case 20:listeCrs();break;
+                case 21:listeGrp();break;
+                case 22:v.affMsg("Fin");break;
                 default:v.affMsg("Choix invalide");
             }
-        } while (ch != 20);
+        } while (ch != 22);
 
     }
 
@@ -141,6 +143,21 @@ public class Controleur {
         Cours cRech = v.rechCours();
         return m.getCours(cRech);
     }
+    
+    private List<Cours> affCrsEns() {
+        Enseignant eRech = v.rechEns();
+        Enseignant tmp = m.getEnseignant(eRech);
+        return m.getEnseignantCours(tmp);
+       
+    }
+    
+    private List<Cours> affCrsGrp() {
+        Groupe gRech = v.rechGroupe();
+        Groupe tmp = m.getGroupe(gRech);
+        return m.getGroupeCours(tmp);
+       
+    }
+    
 
     private void rechGroupe() {
         Groupe g = v.rechGroupe();
@@ -313,7 +330,7 @@ public class Controleur {
             v.affMsg("Cours n'existe pas ");
         }else{
         String ch = v.supCoursEns();
-        if (ch=="non") {
+        if ("non".equals(ch)) {
             v.affMsg("La suppression a été annuler");
         } else {
             v.affMsg("** Suppression de tous les enseignants ** ");
@@ -332,7 +349,7 @@ public class Controleur {
             v.affMsg("Cours n'existe pas ");
         }else{
         String ch = v.supCoursGrp();
-        if (ch=="non") {
+        if ("non".equals(ch)) {
             v.affMsg("La suppression a été annuler");
         } else {
             v.affMsg("** Suppression de tous les groupe ** ");
