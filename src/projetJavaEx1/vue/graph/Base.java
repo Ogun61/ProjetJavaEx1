@@ -15,9 +15,9 @@ public class Base extends javax.swing.JFrame {
         initComponents();
         this.setBackground(Color.RED);
         //Pour cette partie Guillaume m'a expliqué comment faire pour utiliser le modeleJdbc. Par exemple, pour faire l'ajout d'un enseignant dans la BD.
-        Modele m = ModeleJdbc.getInstance();
+        ModeleJdbc m = ModeleJdbc.getInstance();
         ajoutEnseignant1.setModele(m);
-
+        
     }
 
     /**

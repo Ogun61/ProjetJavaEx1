@@ -23,6 +23,14 @@ import myconnections.DBConnection;
  * @author Nugo
  */
 public class ModeleJdbc extends Modele {
+     private static ModeleJdbc instance = null;
+        public static ModeleJdbc getInstance() {
+        if (instance == null) {
+            return instance = new ModeleJdbc();
+        } else {
+            return instance;
+        }
+}
 
     Connection dbconnect;
 
@@ -287,9 +295,12 @@ public class ModeleJdbc extends Modele {
 
         try (PreparedStatement pstm = dbconnect.prepareStatement(query);) {
 
-            pstm.setString(1, e1.getMatricule());
-            pstm.setString(2, e1.getNom());
-            pstm.setString(3, e1.getPrenom());
+            String mat= e1.getMatricule();
+            String nom= e1.getNom();
+            String prenom= e1.getPrenom();
+            pstm.setString(1, mat);
+            pstm.setString(2, nom);
+            pstm.setString(3, prenom);
 
             int n = pstm.executeUpdate();
             if (n == 1) {

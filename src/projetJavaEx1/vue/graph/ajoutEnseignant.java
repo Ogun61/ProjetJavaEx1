@@ -13,13 +13,13 @@ import projetJavaEx1.mesclassesCEG.Enseignant;
 
 public class ajoutEnseignant extends javax.swing.JPanel {
 
-    private Modele m;
+    private ModeleJdbc m;
 
     public ajoutEnseignant() {
         initComponents();
     }
 
-    public void setModele(Modele m) {
+    public void setModele(ModeleJdbc m) {
         this.m = m;
     }
 
@@ -173,20 +173,20 @@ public class ajoutEnseignant extends javax.swing.JPanel {
         tfprenom.setBackground(Color.white);
 
         boolean erreur = false;
-        String nom = tfmat.getText();
+        String nom = tfnom.getText();
         if (nom.trim().equals("")) {
-            erreur = true;
-            tfmat.setBackground(Color.ORANGE);
-        }
-        String prenom = tfnom.getText();
-        if (prenom.trim().equals("")) {
             erreur = true;
             tfnom.setBackground(Color.ORANGE);
         }
-        String matricule = tfprenom.getText();
-        if (matricule.trim().equals("")) {
+        String prenom = tfprenom.getText();
+        if (prenom.trim().equals("")) {
             erreur = true;
             tfprenom.setBackground(Color.ORANGE);
+        }
+        String matricule = tfmat.getText();
+        if (matricule.trim().equals("")) {
+            erreur = true;
+            tfmat.setBackground(Color.ORANGE);
         }
 
          if (!erreur) {

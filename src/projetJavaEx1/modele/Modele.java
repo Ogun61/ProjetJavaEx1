@@ -30,19 +30,7 @@ public class Modele {
      */
     private final List<Groupe> groupe = new ArrayList<>();
     
-      private static Modele instance = null;
 
-    /**
-     * Méthode qui récupère l'instance de ClasseModele
-     * @return instanciation d'un modèle ou modèle courant
-     */
-    public static Modele getInstance() {
-        if (instance == null) {
-            return instance = new Modele();
-        } else {
-            return instance;
-        }
-}
     /**
      * methode qui permet l'ajout d'un enseignant dans la liste des enseignants
      *
