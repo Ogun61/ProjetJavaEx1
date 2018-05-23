@@ -24,6 +24,7 @@ public class Base extends javax.swing.JFrame {
         asgnCours1.setModele(m);
         assignGroupe1.setModele(m);
         modifEnseignant1.setModele(m);
+        suppCrsEns1.setModele(m);
 
     }
 
@@ -49,6 +50,7 @@ public class Base extends javax.swing.JFrame {
         asgnCours1 = new projetJavaEx1.vue.graph.asgnCours();
         assignGroupe1 = new projetJavaEx1.vue.graph.assignGroupe();
         modifEnseignant1 = new projetJavaEx1.vue.graph.modifEnseignant();
+        suppCrsEns1 = new projetJavaEx1.vue.graph.suppCrsEns();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuAjout = new javax.swing.JMenu();
         ajoutEnseignant = new javax.swing.JMenuItem();
@@ -60,6 +62,7 @@ public class Base extends javax.swing.JFrame {
         modifEnseignant = new javax.swing.JMenuItem();
         modifCours = new javax.swing.JMenuItem();
         modifGroupe = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         MenuRech = new javax.swing.JMenu();
         rechEnseignant = new javax.swing.JMenuItem();
         rechCours = new javax.swing.JMenuItem();
@@ -132,6 +135,7 @@ public class Base extends javax.swing.JFrame {
         getContentPane().add(asgnCours1, "card9");
         getContentPane().add(assignGroupe1, "card10");
         getContentPane().add(modifEnseignant1, "card11");
+        getContentPane().add(suppCrsEns1, "card12");
 
         MenuAjout.setText("Ajout");
 
@@ -202,6 +206,14 @@ public class Base extends javax.swing.JFrame {
             }
         });
         MenuModif.add(modifGroupe);
+
+        jMenuItem1.setText("Supprimer tous les enseignant associé au cours ");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        MenuModif.add(jMenuItem1);
 
         jMenuBar1.add(MenuModif);
 
@@ -325,6 +337,11 @@ public class Base extends javax.swing.JFrame {
         cardLayout.show(this.getContentPane(), "card10");
     }//GEN-LAST:event_assignGroupeActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+       CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(this.getContentPane(), "card12");
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -380,6 +397,7 @@ public class Base extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JMenuItem modifCours;
     private javax.swing.JMenuItem modifEnseignant;
@@ -391,5 +409,6 @@ public class Base extends javax.swing.JFrame {
     private projetJavaEx1.vue.graph.rechercheCrs rechercheCrs1;
     private projetJavaEx1.vue.graph.rechercheEns rechercheEns1;
     private projetJavaEx1.vue.graph.rechercheGrp rechercheGrp1;
+    private projetJavaEx1.vue.graph.suppCrsEns suppCrsEns1;
     // End of variables declaration//GEN-END:variables
 }
