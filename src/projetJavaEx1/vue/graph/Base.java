@@ -1,4 +1,3 @@
-
 package projetJavaEx1.vue.graph;
 
 import java.awt.CardLayout;
@@ -24,7 +23,8 @@ public class Base extends javax.swing.JFrame {
         rechercheGrp1.setModele(m);
         asgnCours1.setModele(m);
         assignGroupe1.setModele(m);
-        
+        modifEnseignant1.setModele(m);
+
     }
 
     /**
@@ -48,6 +48,7 @@ public class Base extends javax.swing.JFrame {
         rechercheGrp1 = new projetJavaEx1.vue.graph.rechercheGrp();
         asgnCours1 = new projetJavaEx1.vue.graph.asgnCours();
         assignGroupe1 = new projetJavaEx1.vue.graph.assignGroupe();
+        modifEnseignant1 = new projetJavaEx1.vue.graph.modifEnseignant();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuAjout = new javax.swing.JMenu();
         ajoutEnseignant = new javax.swing.JMenuItem();
@@ -130,6 +131,7 @@ public class Base extends javax.swing.JFrame {
         getContentPane().add(rechercheGrp1, "card8");
         getContentPane().add(asgnCours1, "card9");
         getContentPane().add(assignGroupe1, "card10");
+        getContentPane().add(modifEnseignant1, "card11");
 
         MenuAjout.setText("Ajout");
 
@@ -252,7 +254,8 @@ public class Base extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void modifEnseignantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifEnseignantActionPerformed
-
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(this.getContentPane(), "card11");
     }//GEN-LAST:event_modifEnseignantActionPerformed
 
     private void modifCoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifCoursActionPerformed
@@ -380,6 +383,7 @@ public class Base extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JMenuItem modifCours;
     private javax.swing.JMenuItem modifEnseignant;
+    private projetJavaEx1.vue.graph.modifEnseignant modifEnseignant1;
     private javax.swing.JMenuItem modifGroupe;
     private javax.swing.JMenuItem rechCours;
     private javax.swing.JMenuItem rechEnseignant;

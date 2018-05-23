@@ -108,6 +108,7 @@ public class Modele {
       if(crs.isEmpty())return listec;
      
       for(Cours c :crs){
+          
             listee=c.getEnseignants();
             if(listee.equals(c))listec.add(c);
       }

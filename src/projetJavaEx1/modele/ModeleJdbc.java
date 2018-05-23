@@ -157,10 +157,10 @@ public class ModeleJdbc extends Modele {
                 } catch (Exception e) {
                     System.out.println("Erreur de création" + e);
                 }
-                System.out.println("code du cours : " + codec);
+                /*System.out.println("code du cours : " + codec);
                 System.out.println("nombre d'heure : " + nbr);
                 System.out.println("intitule :" + intitulec);
-
+                */
                 cours.assignation(e1);
                 lc.add(cours);
             }
@@ -555,7 +555,7 @@ public class ModeleJdbc extends Modele {
         } catch (SQLIntegrityConstraintViolationException pk) {
             return "Erreur de clé primaire, cette enseignant possède au moins. " + pk;
         } catch (SQLException e) {
-            msg = "erreur lors de la modification de l'enseignant " + e;
+            msg = "erreur lors de la modification de l'enseignant  " + e;
         }
         return msg;
     }
