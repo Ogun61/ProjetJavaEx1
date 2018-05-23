@@ -22,6 +22,9 @@ public class Base extends javax.swing.JFrame {
         rechercheEns1.setModele(m);
         rechercheCrs1.setModele(m);
         rechercheGrp1.setModele(m);
+        asgnCours1.setModele(m);
+        assignGroupe1.setModele(m);
+        
     }
 
     /**
@@ -43,11 +46,15 @@ public class Base extends javax.swing.JFrame {
         ajGroupe1 = new projetJavaEx1.vue.graph.ajGroupe();
         ajtCours1 = new projetJavaEx1.vue.graph.ajtCours();
         rechercheGrp1 = new projetJavaEx1.vue.graph.rechercheGrp();
+        asgnCours1 = new projetJavaEx1.vue.graph.asgnCours();
+        assignGroupe1 = new projetJavaEx1.vue.graph.assignGroupe();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuAjout = new javax.swing.JMenu();
         ajoutEnseignant = new javax.swing.JMenuItem();
         ajoutCours = new javax.swing.JMenuItem();
         ajoutGroupe = new javax.swing.JMenuItem();
+        assignCours = new javax.swing.JMenuItem();
+        assignGroupe = new javax.swing.JMenuItem();
         MenuModif = new javax.swing.JMenu();
         modifEnseignant = new javax.swing.JMenuItem();
         modifCours = new javax.swing.JMenuItem();
@@ -58,6 +65,7 @@ public class Base extends javax.swing.JFrame {
         rechGroupe = new javax.swing.JMenuItem();
         affichage = new javax.swing.JMenu();
         affListe = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 153, 102));
@@ -94,7 +102,7 @@ public class Base extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 231, Short.MAX_VALUE))
+                .addGap(0, 243, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -120,6 +128,8 @@ public class Base extends javax.swing.JFrame {
         getContentPane().add(ajGroupe1, "card5");
         getContentPane().add(ajtCours1, "card6");
         getContentPane().add(rechercheGrp1, "card8");
+        getContentPane().add(asgnCours1, "card9");
+        getContentPane().add(assignGroupe1, "card10");
 
         MenuAjout.setText("Ajout");
 
@@ -146,6 +156,22 @@ public class Base extends javax.swing.JFrame {
             }
         });
         MenuAjout.add(ajoutGroupe);
+
+        assignCours.setText("Assigner un cours");
+        assignCours.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assignCoursActionPerformed(evt);
+            }
+        });
+        MenuAjout.add(assignCours);
+
+        assignGroupe.setText("Assigner un groupe");
+        assignGroupe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assignGroupeActionPerformed(evt);
+            }
+        });
+        MenuAjout.add(assignGroupe);
 
         jMenuBar1.add(MenuAjout);
 
@@ -217,6 +243,9 @@ public class Base extends javax.swing.JFrame {
 
         jMenuBar1.add(affichage);
 
+        jMenu1.setText("jMenu1");
+        jMenuBar1.add(jMenu1);
+
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -283,6 +312,16 @@ public class Base extends javax.swing.JFrame {
         cardLayout.show(this.getContentPane(), "card8");
     }//GEN-LAST:event_rechGroupeActionPerformed
 
+    private void assignCoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignCoursActionPerformed
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(this.getContentPane(), "card9");
+    }//GEN-LAST:event_assignCoursActionPerformed
+
+    private void assignGroupeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignGroupeActionPerformed
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(this.getContentPane(), "card10");
+    }//GEN-LAST:event_assignGroupeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -330,8 +369,13 @@ public class Base extends javax.swing.JFrame {
     private projetJavaEx1.vue.graph.ajoutEnseignant ajoutEnseignant1;
     private javax.swing.JMenuItem ajoutGroupe;
     private projetJavaEx1.vue.graph.ajtCours ajtCours1;
+    private projetJavaEx1.vue.graph.asgnCours asgnCours1;
+    private javax.swing.JMenuItem assignCours;
+    private javax.swing.JMenuItem assignGroupe;
+    private projetJavaEx1.vue.graph.assignGroupe assignGroupe1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JMenuItem modifCours;
