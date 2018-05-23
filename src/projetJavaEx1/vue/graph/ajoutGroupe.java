@@ -124,7 +124,7 @@ public class ajoutGroupe extends javax.swing.JPanel {
 
          if (!erreur) {
             Groupe g = new Groupe(codegr, intitule, niveau);
-            //JOptionPane.showMessageDialog(this, e);
+            
             String msg = m.ajoutGroupe(g);
             JOptionPane.showMessageDialog(this, msg, "Résultat", JOptionPane.INFORMATION_MESSAGE);
         } 

@@ -4,7 +4,7 @@ package projetJavaEx1.vue.graph;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import projetJavaEx1.modele.*;
-import projetJavaEx1.mesclassesCEG.Enseignant;
+import projetJavaEx1.mesclassesCEG.Groupe;
 
 /**
  *
@@ -19,7 +19,7 @@ public class ajGroupe extends javax.swing.JPanel {
         initComponents();
     }
 
-    public void setModele(Modele m) {
+    public void setModele(ModeleJdbc m) {
         this.m = m;
     }
 
@@ -173,26 +173,26 @@ public class ajGroupe extends javax.swing.JPanel {
         tfniveau.setBackground(Color.white);
 
         boolean erreur = false;
-        String nom = tfcodegr.getText();
-        if (nom.trim().equals("")) {
+        String code = tfcodegr.getText();
+        if (code.trim().equals("")) {
             erreur = true;
             tfcodegr.setBackground(Color.ORANGE);
         }
-        String prenom = tfintitulegr.getText();
-        if (prenom.trim().equals("")) {
+        String intitule = tfintitulegr.getText();
+        if (intitule.trim().equals("")) {
             erreur = true;
             tfintitulegr.setBackground(Color.ORANGE);
         }
-        String matricule = tfniveau.getText();
-        if (matricule.trim().equals("")) {
+        String niveau = tfniveau.getText();
+        if (niveau.trim().equals("")) {
             erreur = true;
             tfniveau.setBackground(Color.ORANGE);
         }
 
          if (!erreur) {
-            Enseignant e = new Enseignant(matricule, nom, prenom);
-            //JOptionPane.showMessageDialog(this, e);
-            String msg = m.ajoutEns(e);
+            Groupe g = new Groupe(code,intitule,niveau);
+           
+            String msg = m.ajoutGroupe(g);
             JOptionPane.showMessageDialog(this, msg, "Résultat", JOptionPane.INFORMATION_MESSAGE);
         } 
          else {

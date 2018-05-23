@@ -3,8 +3,8 @@ package projetJavaEx1.vue.graph;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import projetJavaEx1.mesclassesCEG.Cours;
 import projetJavaEx1.modele.*;
-import projetJavaEx1.mesclassesCEG.Enseignant;
 
 /**
  *
@@ -20,7 +20,7 @@ public class ajtCours extends javax.swing.JPanel {
         initComponents();
     }
 
-    public void setModele(Modele m) {
+    public void setModele(ModeleJdbc m) {
         this.m = m;
     }
 
@@ -174,33 +174,41 @@ public class ajtCours extends javax.swing.JPanel {
         tfintitule.setBackground(Color.white);
 
         boolean erreur = false;
-        String nom = tfcode.getText();
-        if (nom.trim().equals("")) {
+        String code = tfcode.getText();
+        if (code.trim().equals("")) {
             erreur = true;
             tfcode.setBackground(Color.ORANGE);
         }
-        String prenom = tfnbr.getText();
-        if (prenom.trim().equals("")) {
+        String nbr = tfnbr.getText();
+        int nbra = 0;
+        try {
+            nbra = Integer.parseInt(nbr);
+        } catch (NumberFormatException e) {
             erreur = true;
             tfnbr.setBackground(Color.ORANGE);
         }
-        String matricule = tfintitule.getText();
-        if (matricule.trim().equals("")) {
+        String intitule = tfintitule.getText();
+        if (intitule.trim().equals("")) {
             erreur = true;
             tfintitule.setBackground(Color.ORANGE);
         }
 
-         if (!erreur) {
-            Enseignant e = new Enseignant(matricule, nom, prenom);
-            //JOptionPane.showMessageDialog(this, e);
-            String msg = m.ajoutEns(e);
-            JOptionPane.showMessageDialog(this, msg, "Résultat", JOptionPane.INFORMATION_MESSAGE);
-        } 
-         else {
-            if(erreur) JOptionPane.showMessageDialog(this, "Veuillez remplir tous les champs", "Erreur", JOptionPane.ERROR_MESSAGE);
+        if (!erreur) {
+            Cours crs = null;
+            Cours.CoursBuilder c = new Cours.CoursBuilder();
+            c.setCodec(code).setNbrha(nbra).setIntitulec(intitule);
+            try {
+                crs = c.build();
+            } catch (Exception e) {
+                System.out.println("Erreur de création" + e);
+            }
             
+            String msg = m.ajoutCours(crs);
+            JOptionPane.showMessageDialog(this, msg, "Résultat", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Veuillez remplir tous les champs", "Erreur", JOptionPane.ERROR_MESSAGE);
+
         }
-        
         
 
     }//GEN-LAST:event_btokActionPerformed

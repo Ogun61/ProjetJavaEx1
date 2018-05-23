@@ -132,7 +132,7 @@ public class ajoutCours extends javax.swing.JPanel {
             } catch (Exception e) {
                 System.out.println("Erreur de création" + e);
             }
-            //Pas oublier modèle
+            
             String msg = m.ajoutCours(crs);
             JOptionPane.showMessageDialog(this, msg, "Résultat", JOptionPane.INFORMATION_MESSAGE);
         } else {

@@ -17,6 +17,8 @@ public class Base extends javax.swing.JFrame {
         //Pour cette partie Guillaume m'a expliqué comment faire pour utiliser le modeleJdbc. Par exemple, pour faire l'ajout d'un enseignant dans la BD.
         ModeleJdbc m = ModeleJdbc.getInstance();
         ajoutEnseignant1.setModele(m);
+        ajtCours1.setModele(m);
+        ajGroupe1.setModele(m);
         
     }
 
