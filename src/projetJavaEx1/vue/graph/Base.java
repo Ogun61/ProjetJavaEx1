@@ -19,7 +19,9 @@ public class Base extends javax.swing.JFrame {
         ajoutEnseignant1.setModele(m);
         ajtCours1.setModele(m);
         ajGroupe1.setModele(m);
-        
+        rechercheEns1.setModele(m);
+        rechercheCrs1.setModele(m);
+        rechercheGrp1.setModele(m);
     }
 
     /**
@@ -36,8 +38,11 @@ public class Base extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         ajoutEnseignant1 = new projetJavaEx1.vue.graph.ajoutEnseignant();
+        rechercheEns1 = new projetJavaEx1.vue.graph.rechercheEns();
+        rechercheCrs1 = new projetJavaEx1.vue.graph.rechercheCrs();
         ajGroupe1 = new projetJavaEx1.vue.graph.ajGroupe();
         ajtCours1 = new projetJavaEx1.vue.graph.ajtCours();
+        rechercheGrp1 = new projetJavaEx1.vue.graph.rechercheGrp();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuAjout = new javax.swing.JMenu();
         ajoutEnseignant = new javax.swing.JMenuItem();
@@ -47,6 +52,10 @@ public class Base extends javax.swing.JFrame {
         modifEnseignant = new javax.swing.JMenuItem();
         modifCours = new javax.swing.JMenuItem();
         modifGroupe = new javax.swing.JMenuItem();
+        MenuRech = new javax.swing.JMenu();
+        rechEnseignant = new javax.swing.JMenuItem();
+        rechCours = new javax.swing.JMenuItem();
+        rechGroupe = new javax.swing.JMenuItem();
         affichage = new javax.swing.JMenu();
         affListe = new javax.swing.JMenuItem();
 
@@ -85,7 +94,7 @@ public class Base extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 79, Short.MAX_VALUE))
+                .addGap(0, 231, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -97,15 +106,20 @@ public class Base extends javax.swing.JFrame {
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 235, Short.MAX_VALUE))
+                .addGap(0, 429, Short.MAX_VALUE))
         );
 
         accueil.add(jPanel2);
 
         getContentPane().add(accueil, "card4");
         getContentPane().add(ajoutEnseignant1, "card3");
+        getContentPane().add(rechercheEns1, "card4");
+        rechercheEns1.getAccessibleContext().setAccessibleName("");
+
+        getContentPane().add(rechercheCrs1, "card7");
         getContentPane().add(ajGroupe1, "card5");
         getContentPane().add(ajtCours1, "card6");
+        getContentPane().add(rechercheGrp1, "card8");
 
         MenuAjout.setText("Ajout");
 
@@ -162,6 +176,34 @@ public class Base extends javax.swing.JFrame {
         MenuModif.add(modifGroupe);
 
         jMenuBar1.add(MenuModif);
+
+        MenuRech.setText("Recherche");
+
+        rechEnseignant.setText("Enseignant");
+        rechEnseignant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rechEnseignantActionPerformed(evt);
+            }
+        });
+        MenuRech.add(rechEnseignant);
+
+        rechCours.setText("Cours");
+        rechCours.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rechCoursActionPerformed(evt);
+            }
+        });
+        MenuRech.add(rechCours);
+
+        rechGroupe.setText("Groupe");
+        rechGroupe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rechGroupeActionPerformed(evt);
+            }
+        });
+        MenuRech.add(rechGroupe);
+
+        jMenuBar1.add(MenuRech);
 
         affichage.setText("Affichages");
 
@@ -226,6 +268,21 @@ public class Base extends javax.swing.JFrame {
         this.setLocation(x - xx, y - xy);
     }//GEN-LAST:event_jPanel2MouseDragged
 
+    private void rechEnseignantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rechEnseignantActionPerformed
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(this.getContentPane(), "card4");
+    }//GEN-LAST:event_rechEnseignantActionPerformed
+
+    private void rechCoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rechCoursActionPerformed
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(this.getContentPane(), "card7");
+    }//GEN-LAST:event_rechCoursActionPerformed
+
+    private void rechGroupeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rechGroupeActionPerformed
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(this.getContentPane(), "card8");
+    }//GEN-LAST:event_rechGroupeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -263,6 +320,7 @@ public class Base extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu MenuAjout;
     private javax.swing.JMenu MenuModif;
+    private javax.swing.JMenu MenuRech;
     private javax.swing.JPanel accueil;
     private javax.swing.JMenuItem affListe;
     private javax.swing.JMenu affichage;
@@ -279,5 +337,11 @@ public class Base extends javax.swing.JFrame {
     private javax.swing.JMenuItem modifCours;
     private javax.swing.JMenuItem modifEnseignant;
     private javax.swing.JMenuItem modifGroupe;
+    private javax.swing.JMenuItem rechCours;
+    private javax.swing.JMenuItem rechEnseignant;
+    private javax.swing.JMenuItem rechGroupe;
+    private projetJavaEx1.vue.graph.rechercheCrs rechercheCrs1;
+    private projetJavaEx1.vue.graph.rechercheEns rechercheEns1;
+    private projetJavaEx1.vue.graph.rechercheGrp rechercheGrp1;
     // End of variables declaration//GEN-END:variables
 }
