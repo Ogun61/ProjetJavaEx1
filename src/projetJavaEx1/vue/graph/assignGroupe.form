@@ -32,17 +32,16 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="btclear" min="-2" pref="339" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="30" max="32767" attributes="0"/>
                       <Component id="btok" min="-2" pref="339" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jcodegr" min="-2" pref="339" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="tfcodegr" min="-2" pref="339" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="25" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -56,9 +55,9 @@
                   <Component id="tfcodec" alignment="3" min="-2" pref="125" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jcodegr" alignment="1" min="-2" pref="125" max="-2" attributes="0"/>
-                  <Component id="tfcodegr" alignment="1" min="-2" pref="125" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jcodegr" alignment="3" min="-2" pref="125" max="-2" attributes="0"/>
+                  <Component id="tfcodegr" alignment="3" min="-2" pref="125" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -149,7 +148,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/projetJavaEx1/vue/graph/Images/group_52px_1.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cours"/>
+            <Property name="text" type="java.lang.String" value="Groupe"/>
           </Properties>
         </Component>
       </SubComponents>

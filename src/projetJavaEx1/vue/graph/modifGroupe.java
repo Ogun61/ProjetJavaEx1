@@ -3,17 +3,17 @@ package projetJavaEx1.vue.graph;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import projetJavaEx1.modele.*;
-import projetJavaEx1.mesclassesCEG.Enseignant;
+import projetJavaEx1.mesclassesCEG.Groupe;
 
 /**
  *
  * @author ogun.ark
  */
-public class modifEnseignant extends javax.swing.JPanel {
+public class modifGroupe extends javax.swing.JPanel {
 
     private ModeleJdbc m;
 
-    public modifEnseignant() {
+    public modifGroupe() {
         initComponents();
     }
 
@@ -32,14 +32,14 @@ public class modifEnseignant extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jancmat = new javax.swing.JLabel();
-        tfancmat = new javax.swing.JTextField();
-        jnvnom = new javax.swing.JLabel();
-        tfnvnom = new javax.swing.JTextField();
-        jnvprenom = new javax.swing.JLabel();
-        tfnvprenom = new javax.swing.JTextField();
-        jnvmat = new javax.swing.JLabel();
-        tfnvmat = new javax.swing.JTextField();
+        janccode = new javax.swing.JLabel();
+        tfanccode = new javax.swing.JTextField();
+        jnvintitule = new javax.swing.JLabel();
+        tfnvintitule = new javax.swing.JTextField();
+        jnvniveau = new javax.swing.JLabel();
+        tfnvniveau = new javax.swing.JTextField();
+        jnvcode = new javax.swing.JLabel();
+        tfnvcode = new javax.swing.JTextField();
         btok = new javax.swing.JButton();
         jbtclear = new javax.swing.JButton();
 
@@ -52,7 +52,7 @@ public class modifEnseignant extends javax.swing.JPanel {
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/group_52px_1.png"))); // NOI18N
-        jLabel15.setText("Enseignant");
+        jLabel15.setText("Groupe");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -71,35 +71,35 @@ public class modifEnseignant extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jancmat.setText("Ancien matricule :");
+        janccode.setText("Ancien code :");
 
-        tfancmat.addActionListener(new java.awt.event.ActionListener() {
+        tfanccode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfancmatActionPerformed(evt);
+                tfanccodeActionPerformed(evt);
             }
         });
 
-        jnvnom.setText("Nouveau nom :");
+        jnvintitule.setText("Nouveau intitulé :");
 
-        tfnvnom.addActionListener(new java.awt.event.ActionListener() {
+        tfnvintitule.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfnvnomActionPerformed(evt);
+                tfnvintituleActionPerformed(evt);
             }
         });
 
-        jnvprenom.setText("Nouveau prénom");
+        jnvniveau.setText("Nouveau niveau :");
 
-        tfnvprenom.addActionListener(new java.awt.event.ActionListener() {
+        tfnvniveau.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfnvprenomActionPerformed(evt);
+                tfnvniveauActionPerformed(evt);
             }
         });
 
-        jnvmat.setText("Nouveau matricule");
+        jnvcode.setText("Nouveau code :");
 
-        tfnvmat.addActionListener(new java.awt.event.ActionListener() {
+        tfnvcode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfnvmatActionPerformed(evt);
+                tfnvcodeActionPerformed(evt);
             }
         });
 
@@ -131,23 +131,23 @@ public class modifEnseignant extends javax.swing.JPanel {
                                 .addComponent(jbtclear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(25, 25, 25))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jnvmat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jnvcode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(12, 12, 12)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfnvmat)
+                            .addComponent(tfnvcode)
                             .addComponent(btok, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jnvprenom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jnvnom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jancmat, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE))
+                            .addComponent(jnvniveau, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jnvintitule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(janccode, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfancmat, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
-                            .addComponent(tfnvnom)))
+                            .addComponent(tfanccode, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
+                            .addComponent(tfnvintitule)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 351, Short.MAX_VALUE)
-                        .addComponent(tfnvprenom, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tfnvniveau, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -156,20 +156,20 @@ public class modifEnseignant extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jancmat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tfancmat, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))
+                    .addComponent(janccode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tfanccode, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jnvnom, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfnvnom))
+                    .addComponent(jnvintitule, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfnvintitule))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jnvprenom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tfnvprenom, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                    .addComponent(jnvniveau, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tfnvniveau, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jnvmat, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfnvmat, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jnvcode, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfnvcode, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtclear, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -178,63 +178,63 @@ public class modifEnseignant extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tfancmatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfancmatActionPerformed
+    private void tfanccodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfanccodeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfancmatActionPerformed
+    }//GEN-LAST:event_tfanccodeActionPerformed
 
-    private void tfnvnomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfnvnomActionPerformed
+    private void tfnvintituleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfnvintituleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfnvnomActionPerformed
+    }//GEN-LAST:event_tfnvintituleActionPerformed
 
-    private void tfnvprenomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfnvprenomActionPerformed
+    private void tfnvniveauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfnvniveauActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfnvprenomActionPerformed
+    }//GEN-LAST:event_tfnvniveauActionPerformed
 
-    private void tfnvmatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfnvmatActionPerformed
+    private void tfnvcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfnvcodeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfnvmatActionPerformed
+    }//GEN-LAST:event_tfnvcodeActionPerformed
 
     private void btokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btokActionPerformed
-        tfancmat.setBackground(Color.white);
-        tfnvmat.setBackground(Color.white);
-        tfnvnom.setBackground(Color.white);
-        tfnvprenom.setBackground(Color.white);
+        tfanccode.setBackground(Color.white);
+        tfnvcode.setBackground(Color.white);
+        tfnvintitule.setBackground(Color.white);
+        tfnvniveau.setBackground(Color.white);
 
         boolean erreur = false;
 
-        String ancmatricule = tfancmat.getText();
-        if (ancmatricule.trim().equals("")) {
+        String anccode = tfanccode.getText();
+        if (anccode.trim().equals("")) {
             erreur = true;
-            tfancmat.setBackground(Color.ORANGE);
+            tfanccode.setBackground(Color.ORANGE);
         }
-        String nvmat = tfnvmat.getText();
-        if (nvmat.trim().equals("")) {
+        String nvcode = tfnvcode.getText();
+        if (nvcode.trim().equals("")) {
             erreur = true;
-            tfnvmat.setBackground(Color.ORANGE);
+            tfnvcode.setBackground(Color.ORANGE);
         }
-        String nvnom = tfnvnom.getText();
-        if (nvnom.trim().equals("")) {
+        String nvintitule = tfnvintitule.getText();
+        if (nvintitule.trim().equals("")) {
             erreur = true;
-            tfnvnom.setBackground(Color.ORANGE);
+            tfnvintitule.setBackground(Color.ORANGE);
         }
-        String nvprenom = tfnvprenom.getText();
-        if (nvprenom.trim().equals("")) {
+        String nvniveau = tfnvniveau.getText();
+        if (nvniveau.trim().equals("")) {
             erreur = true;
-            tfnvprenom.setBackground(Color.ORANGE);
+            tfnvniveau.setBackground(Color.ORANGE);
         }
 
         if (!erreur) {
-            Enseignant ensRech = new Enseignant(ancmatricule);
-            Enseignant enseignant = m.getEnseignant(ensRech);
+            Groupe grpRech = new Groupe(anccode);
+            Groupe groupe = m.getGroupe(grpRech);
 
-            Enseignant nvens = new Enseignant(nvnom, nvprenom, nvmat);
+            Groupe nvgrp = new Groupe(nvcode, nvintitule, nvniveau);
 
-            String msg = m.modifEns(nvens, enseignant);
+            String msg = m.modifGrp(nvgrp, groupe);
             JOptionPane.showMessageDialog(this, msg, "Résultat", JOptionPane.INFORMATION_MESSAGE);
 
-            if (enseignant == null) {
+            if (groupe == null) {
 
-                JOptionPane.showMessageDialog(this, "Enseignant introuvable", "Résultat",
+                JOptionPane.showMessageDialog(this, "Groupe introuvable", "Résultat",
                         JOptionPane.ERROR_MESSAGE);
 
             } else {
@@ -247,14 +247,14 @@ public class modifEnseignant extends javax.swing.JPanel {
     }//GEN-LAST:event_btokActionPerformed
 
     private void jbtclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtclearActionPerformed
-        tfancmat.setText("");
-        tfnvmat.setText("");
-        tfnvnom.setText("");
-        tfnvprenom.setText("");
-        tfnvnom.setBackground(Color.white);
-        tfancmat.setBackground(Color.white);
-        tfnvprenom.setBackground(Color.white);
-        tfnvmat.setBackground(Color.white);
+        tfanccode.setText("");
+        tfnvcode.setText("");
+        tfnvintitule.setText("");
+        tfnvniveau.setText("");
+        tfnvintitule.setBackground(Color.white);
+        tfanccode.setBackground(Color.white);
+        tfnvniveau.setBackground(Color.white);
+        tfnvcode.setBackground(Color.white);
     }//GEN-LAST:event_jbtclearActionPerformed
 
 
@@ -262,15 +262,15 @@ public class modifEnseignant extends javax.swing.JPanel {
     private javax.swing.JButton btok;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel jancmat;
+    private javax.swing.JLabel janccode;
     private javax.swing.JButton jbtclear;
-    private javax.swing.JLabel jnvmat;
-    private javax.swing.JLabel jnvnom;
-    private javax.swing.JLabel jnvprenom;
-    private javax.swing.JTextField tfancmat;
-    private javax.swing.JTextField tfnvmat;
-    private javax.swing.JTextField tfnvnom;
-    private javax.swing.JTextField tfnvprenom;
+    private javax.swing.JLabel jnvcode;
+    private javax.swing.JLabel jnvintitule;
+    private javax.swing.JLabel jnvniveau;
+    private javax.swing.JTextField tfanccode;
+    private javax.swing.JTextField tfnvcode;
+    private javax.swing.JTextField tfnvintitule;
+    private javax.swing.JTextField tfnvniveau;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -127,7 +127,7 @@ public class ModeleJdbc extends Modele {
                 lc.add(cours);
             }
         } catch (SQLException e) {
-            System.err.println("erreur lors de la recherche de la classe " + e);
+            System.err.println("erreur lors de la recherche du cours " + e);
         }
         return lc;
     }
@@ -283,7 +283,7 @@ public class ModeleJdbc extends Modele {
                 return null;
             }
         } catch (SQLException e) {
-            System.err.println("erreur de recherche de la classe " + e);
+            System.err.println("erreur lors de la recherche du cours " + e);
             return null;
         }
     }
@@ -309,7 +309,7 @@ public class ModeleJdbc extends Modele {
                 msg = "ajout enseignant non effectué";
             }
         } catch (SQLException e) {
-            msg = "erreur lors de l'ajout du client " + e;
+            msg = "erreur lors de l'ajout de l'enseignant " + e;
         }
         return msg;
     }
@@ -354,7 +354,7 @@ public class ModeleJdbc extends Modele {
                 msg = "ajout groupe non effectué";
             }
         } catch (SQLException e) {
-            msg = "erreur lors de l'ajout du client " + e;
+            msg = "erreur lors de l'ajout du groupe " + e;
         }
         return msg;
     }
