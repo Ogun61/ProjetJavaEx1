@@ -380,5 +380,12 @@
         </Constraint>
       </Constraints>
     </Component>
+    <Component class="projetJavaEx1.vue.graph.affEnseignant" name="affEnseignant1">
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+          <CardConstraints cardName="card16"/>
+        </Constraint>
+      </Constraints>
+    </Component>
   </SubComponents>
 </Form>
