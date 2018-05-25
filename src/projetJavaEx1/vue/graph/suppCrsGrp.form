@@ -26,9 +26,9 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jcodec" min="-2" pref="339" max="-2" attributes="0"/>
+                      <Component id="jcodegr" min="-2" pref="339" max="-2" attributes="0"/>
                       <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                      <Component id="tfcodec" min="-2" pref="339" max="-2" attributes="0"/>
+                      <Component id="tfcodegr" min="-2" pref="339" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="btclear" min="-2" pref="339" max="-2" attributes="0"/>
@@ -46,8 +46,8 @@
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jcodec" min="-2" pref="125" max="-2" attributes="0"/>
-                  <Component id="tfcodec" min="-2" pref="125" max="-2" attributes="0"/>
+                  <Component id="jcodegr" min="-2" pref="125" max="-2" attributes="0"/>
+                  <Component id="tfcodegr" min="-2" pref="125" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -60,7 +60,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jcodec">
+    <Component class="javax.swing.JLabel" name="jcodegr">
       <Properties>
         <Property name="text" type="java.lang.String" value="Code :"/>
       </Properties>
@@ -68,9 +68,9 @@
         <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="ajoutEnseignant_jmatricule"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfcodec">
+    <Component class="javax.swing.JTextField" name="tfcodegr">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfcodecActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfcodegrActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btclear">
@@ -138,7 +138,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/projetJavaEx1/vue/graph/Images/group_52px_1.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cours"/>
+            <Property name="text" type="java.lang.String" value="Groupe"/>
           </Properties>
         </Component>
       </SubComponents>

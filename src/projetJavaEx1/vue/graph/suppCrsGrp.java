@@ -30,8 +30,8 @@ public class suppCrsGrp extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jcodec = new javax.swing.JLabel();
-        tfcodec = new javax.swing.JTextField();
+        jcodegr = new javax.swing.JLabel();
+        tfcodegr = new javax.swing.JTextField();
         btclear = new javax.swing.JButton();
         javax.swing.JButton btok = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -39,11 +39,11 @@ public class suppCrsGrp extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(102, 102, 102));
 
-        jcodec.setText("Code :");
+        jcodegr.setText("Code :");
 
-        tfcodec.addActionListener(new java.awt.event.ActionListener() {
+        tfcodegr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfcodecActionPerformed(evt);
+                tfcodegrActionPerformed(evt);
             }
         });
 
@@ -68,7 +68,7 @@ public class suppCrsGrp extends javax.swing.JPanel {
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/group_52px_1.png"))); // NOI18N
-        jLabel15.setText("Cours");
+        jLabel15.setText("Groupe");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -96,9 +96,9 @@ public class suppCrsGrp extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jcodec, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jcodegr, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(5, 5, 5)
-                        .addComponent(tfcodec, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tfcodegr, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btclear, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -111,8 +111,8 @@ public class suppCrsGrp extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jcodec, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfcodec, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcodegr, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfcodegr, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btclear, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -122,14 +122,14 @@ public class suppCrsGrp extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btokActionPerformed
-        tfcodec.setBackground(Color.white);
+        tfcodegr.setBackground(Color.white);
 
         boolean erreur = false;
 
-        String code = tfcodec.getText();
+        String code = tfcodegr.getText();
         if (code.trim().equals("")) {
             erreur = true;
-            tfcodec.setBackground(Color.ORANGE);
+            tfcodegr.setBackground(Color.ORANGE);
         }
 
         if (!erreur) {
@@ -169,22 +169,22 @@ public class suppCrsGrp extends javax.swing.JPanel {
     }//GEN-LAST:event_btokActionPerformed
 
     private void btclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btclearActionPerformed
-        tfcodec.setText("");
-        tfcodec.setBackground(Color.white);
+        tfcodegr.setText("");
+        tfcodegr.setBackground(Color.white);
 
     }//GEN-LAST:event_btclearActionPerformed
 
-    private void tfcodecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfcodecActionPerformed
+    private void tfcodegrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfcodegrActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfcodecActionPerformed
+    }//GEN-LAST:event_tfcodegrActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btclear;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel jcodec;
-    private javax.swing.JTextField tfcodec;
+    private javax.swing.JLabel jcodegr;
+    private javax.swing.JTextField tfcodegr;
     // End of variables declaration//GEN-END:variables
 
 }

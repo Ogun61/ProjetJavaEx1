@@ -30,6 +30,7 @@ public class Base extends javax.swing.JFrame {
         suppCrsGrp1.setModele(m);
         affEnseignant1.setModele(m);
         affEnseignant1.affEns();
+        affEnseignant1.affCrs();
 
     }
 
