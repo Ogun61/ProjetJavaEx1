@@ -13,11 +13,11 @@ import projetJavaEx1.mesclassesCEG.Enseignant;
  *
  * @author ogun.ark
  */
-public class affEnseignant extends javax.swing.JPanel {
+public class affichage extends javax.swing.JPanel {
 
     private ModeleJdbc m;
 
-    public affEnseignant() {
+    public affichage() {
         initComponents();
         
     }
@@ -35,6 +35,7 @@ public class affEnseignant extends javax.swing.JPanel {
             model.addRow(listEns);
             
         }
+        
     }
     
     
@@ -42,6 +43,7 @@ public class affEnseignant extends javax.swing.JPanel {
         List<Cours> listC = new ArrayList();
         listC=m.tousLesCrs();
         DefaultTableModel model = (DefaultTableModel) jTableCrs.getModel();
+        model.fireTableDataChanged();
         Object listCrs[]= new Object[3];
         for (int i = 0; i < listC.size(); i++) {
             
@@ -50,7 +52,10 @@ public class affEnseignant extends javax.swing.JPanel {
             listCrs[2]=listC.get(i).getIntitulec();
             model.addRow(listCrs);
             
+            model.fireTableDataChanged();
+            
         }
+        
     }
     
    
@@ -79,6 +84,7 @@ public class affEnseignant extends javax.swing.JPanel {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTableGrp = new javax.swing.JTable();
         jGroupeAff = new javax.swing.JLabel();
+        jraf = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(102, 102, 102));
 
@@ -115,13 +121,16 @@ public class affEnseignant extends javax.swing.JPanel {
             new String [] {
                 "Nom", "Prénom", "Matricule"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(jTableEns);
-        if (jTableEns.getColumnModel().getColumnCount() > 0) {
-            jTableEns.getColumnModel().getColumn(0).setHeaderValue("Nom");
-            jTableEns.getColumnModel().getColumn(1).setHeaderValue("Prénom");
-            jTableEns.getColumnModel().getColumn(2).setHeaderValue("Matricule");
-        }
 
         jEnsAff.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jEnsAff.setForeground(new java.awt.Color(255, 255, 255));
@@ -134,7 +143,15 @@ public class affEnseignant extends javax.swing.JPanel {
             new String [] {
                 "Code", "Nombre d'heure/a", "Intitulé"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane3.setViewportView(jTableCrs);
 
         jCoursAff.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -148,12 +165,27 @@ public class affEnseignant extends javax.swing.JPanel {
             new String [] {
                 "Code", "Intitulé", "Niveau"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane4.setViewportView(jTableGrp);
 
         jGroupeAff.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jGroupeAff.setForeground(new java.awt.Color(255, 255, 255));
         jGroupeAff.setText("Groupe :");
+
+        jraf.setText("Rafraîchir");
+        jraf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrafActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -176,6 +208,10 @@ public class affEnseignant extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(96, 96, 96))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jraf, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(290, 290, 290))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,23 +224,33 @@ public class affEnseignant extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(94, 94, 94)
                         .addComponent(jEnsAff, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(94, 94, 94)
-                        .addComponent(jCoursAff, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jCoursAff, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(118, 118, 118)
+                        .addComponent(jGroupeAff, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(56, 56, 56))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(jGroupeAff, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(136, Short.MAX_VALUE))
+                        .addGap(63, 63, 63)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
+                .addComponent(jraf, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(62, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jrafActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrafActionPerformed
+        ((DefaultTableModel) jTableEns.getModel()).setRowCount(0);
+        affEns();
+        ((DefaultTableModel) jTableCrs.getModel()).setRowCount(0);
+        affCrs();
+        
+        
+        
+    }//GEN-LAST:event_jrafActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -219,6 +265,7 @@ public class affEnseignant extends javax.swing.JPanel {
     private javax.swing.JTable jTableCrs;
     private javax.swing.JTable jTableEns;
     private javax.swing.JTable jTableGrp;
+    private javax.swing.JButton jraf;
     // End of variables declaration//GEN-END:variables
 
 }

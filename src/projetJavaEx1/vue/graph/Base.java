@@ -27,10 +27,11 @@ public class Base extends javax.swing.JFrame {
         modifCours1.setModele(m);
         modifGroupe1.setModele(m);
         suppCrsEns1.setModele(m);
+        suppCrs1.setModele(m);
         suppCrsGrp1.setModele(m);
         affEnseignant1.setModele(m);
-        affEnseignant1.affEns();
-        affEnseignant1.affCrs();
+
+        
 
     }
 
@@ -60,7 +61,8 @@ public class Base extends javax.swing.JFrame {
         suppCrsEns1 = new projetJavaEx1.vue.graph.suppCrsEns();
         modifCours1 = new projetJavaEx1.vue.graph.modifCours();
         suppCrsGrp1 = new projetJavaEx1.vue.graph.suppCrsGrp();
-        affEnseignant1 = new projetJavaEx1.vue.graph.affEnseignant();
+        affEnseignant1 = new projetJavaEx1.vue.graph.affichage();
+        suppCrs1 = new projetJavaEx1.vue.graph.suppCrs();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuAjout = new javax.swing.JMenu();
         ajoutEnseignant = new javax.swing.JMenuItem();
@@ -154,6 +156,7 @@ public class Base extends javax.swing.JFrame {
         getContentPane().add(modifCours1, "card14");
         getContentPane().add(suppCrsGrp1, "card15");
         getContentPane().add(affEnseignant1, "card16");
+        getContentPane().add(suppCrs1, "card17");
 
         MenuAjout.setText("Ajout");
 
@@ -396,7 +399,8 @@ public class Base extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
+     CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+     cardLayout.show(this.getContentPane(), "card17");
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -451,7 +455,7 @@ public class Base extends javax.swing.JFrame {
     private javax.swing.JMenu MenuModif;
     private javax.swing.JMenu MenuRech;
     private javax.swing.JPanel accueil;
-    private projetJavaEx1.vue.graph.affEnseignant affEnseignant1;
+    private projetJavaEx1.vue.graph.affichage affEnseignant1;
     private javax.swing.JMenuItem affListe;
     private javax.swing.JMenu affichage;
     private projetJavaEx1.vue.graph.ajGroupe ajGroupe1;
@@ -486,6 +490,7 @@ public class Base extends javax.swing.JFrame {
     private projetJavaEx1.vue.graph.rechercheCrs rechercheCrs1;
     private projetJavaEx1.vue.graph.rechercheEns rechercheEns1;
     private projetJavaEx1.vue.graph.rechercheGrp rechercheGrp1;
+    private projetJavaEx1.vue.graph.suppCrs suppCrs1;
     private projetJavaEx1.vue.graph.suppCrsEns suppCrsEns1;
     private projetJavaEx1.vue.graph.suppCrsGrp suppCrsGrp1;
     // End of variables declaration//GEN-END:variables
