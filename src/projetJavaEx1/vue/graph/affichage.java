@@ -8,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 import projetJavaEx1.mesclassesCEG.Cours;
 import projetJavaEx1.modele.*;
 import projetJavaEx1.mesclassesCEG.Enseignant;
+import projetJavaEx1.mesclassesCEG.Groupe;
 
 /**
  *
@@ -53,6 +54,25 @@ public class affichage extends javax.swing.JPanel {
             model.addRow(listCrs);
             
             model.fireTableDataChanged();
+            
+        }
+        
+    }
+    
+    public void affGrp(){
+        List<Groupe> lg = new ArrayList();
+        lg=m.tousLesGroupe();
+        DefaultTableModel model = (DefaultTableModel) jTableGrp.getModel();
+        model.fireTableDataChanged();
+        Object listGrp[]= new Object[3];
+        for (int i = 0; i < lg.size(); i++) {
+            
+            listGrp[0]=lg.get(i).getCodegr();
+            listGrp[1]=lg.get(i).getIntitulegr();
+            listGrp[2]=lg.get(i).getNiveau();
+            model.addRow(listGrp);
+            
+          
             
         }
         
@@ -132,8 +152,8 @@ public class affichage extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(jTableEns);
 
+        jEnsAff.setBackground(new java.awt.Color(0, 0, 0));
         jEnsAff.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jEnsAff.setForeground(new java.awt.Color(255, 255, 255));
         jEnsAff.setText("Enseignant :");
 
         jTableCrs.setModel(new javax.swing.table.DefaultTableModel(
@@ -155,8 +175,7 @@ public class affichage extends javax.swing.JPanel {
         jScrollPane3.setViewportView(jTableCrs);
 
         jCoursAff.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jCoursAff.setForeground(new java.awt.Color(255, 255, 255));
-        jCoursAff.setText("Cours");
+        jCoursAff.setText("Cours :");
 
         jTableGrp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -177,7 +196,6 @@ public class affichage extends javax.swing.JPanel {
         jScrollPane4.setViewportView(jTableGrp);
 
         jGroupeAff.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jGroupeAff.setForeground(new java.awt.Color(255, 255, 255));
         jGroupeAff.setText("Groupe :");
 
         jraf.setText("Rafraîchir");
@@ -247,6 +265,8 @@ public class affichage extends javax.swing.JPanel {
         affEns();
         ((DefaultTableModel) jTableCrs.getModel()).setRowCount(0);
         affCrs();
+        ((DefaultTableModel) jTableGrp.getModel()).setRowCount(0);
+        affGrp();
         
         
         

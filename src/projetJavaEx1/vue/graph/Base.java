@@ -28,6 +28,8 @@ public class Base extends javax.swing.JFrame {
         modifGroupe1.setModele(m);
         suppCrsEns1.setModele(m);
         suppCrs1.setModele(m);
+        suppEns1.setModele(m);
+        suppGrp1.setModele(m);
         suppCrsGrp1.setModele(m);
         affEnseignant1.setModele(m);
 
@@ -63,6 +65,8 @@ public class Base extends javax.swing.JFrame {
         suppCrsGrp1 = new projetJavaEx1.vue.graph.suppCrsGrp();
         affEnseignant1 = new projetJavaEx1.vue.graph.affichage();
         suppCrs1 = new projetJavaEx1.vue.graph.suppCrs();
+        suppEns1 = new projetJavaEx1.vue.graph.suppEns();
+        suppGrp1 = new projetJavaEx1.vue.graph.suppGrp();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuAjout = new javax.swing.JMenu();
         ajoutEnseignant = new javax.swing.JMenuItem();
@@ -85,7 +89,7 @@ public class Base extends javax.swing.JFrame {
         rechGroupe = new javax.swing.JMenuItem();
         affichage = new javax.swing.JMenu();
         affListe = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 153, 102));
@@ -157,6 +161,8 @@ public class Base extends javax.swing.JFrame {
         getContentPane().add(suppCrsGrp1, "card15");
         getContentPane().add(affEnseignant1, "card16");
         getContentPane().add(suppCrs1, "card17");
+        getContentPane().add(suppEns1, "card18");
+        getContentPane().add(suppGrp1, "card19");
 
         MenuAjout.setText("Ajout");
 
@@ -308,10 +314,10 @@ public class Base extends javax.swing.JFrame {
         });
         affichage.add(affListe);
 
-        jMenuBar1.add(affichage);
+        jMenuItem6.setText("Afficher les enseignants d'un cours");
+        affichage.add(jMenuItem6);
 
-        jMenu1.setText("jMenu1");
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(affichage);
 
         setJMenuBar(jMenuBar1);
 
@@ -404,11 +410,13 @@ public class Base extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(this.getContentPane(), "card19");
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(this.getContentPane(), "card18");
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
@@ -470,13 +478,13 @@ public class Base extends javax.swing.JFrame {
     private projetJavaEx1.vue.graph.assignGroupe assignGroupe1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JMenuItem modifCours;
     private projetJavaEx1.vue.graph.modifCours modifCours1;
@@ -493,5 +501,7 @@ public class Base extends javax.swing.JFrame {
     private projetJavaEx1.vue.graph.suppCrs suppCrs1;
     private projetJavaEx1.vue.graph.suppCrsEns suppCrsEns1;
     private projetJavaEx1.vue.graph.suppCrsGrp suppCrsGrp1;
+    private projetJavaEx1.vue.graph.suppEns suppEns1;
+    private projetJavaEx1.vue.graph.suppGrp suppGrp1;
     // End of variables declaration//GEN-END:variables
 }
