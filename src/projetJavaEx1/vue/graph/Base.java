@@ -98,7 +98,13 @@ public class Base extends javax.swing.JFrame {
         jMenuItem8 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Projet java");
         setBackground(new java.awt.Color(255, 153, 102));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
         getContentPane().setLayout(new java.awt.CardLayout());
 
         accueil.setLayout(new java.awt.GridLayout(1, 5, 4, 2));
@@ -311,7 +317,7 @@ public class Base extends javax.swing.JFrame {
         });
         MenuRech.add(rechGroupe);
 
-        jMenuItem6.setText("Rechercher les enseignants d'un cours");
+        jMenuItem6.setText("Rechercher les cours d'un enseignant");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
@@ -468,6 +474,10 @@ public class Base extends javax.swing.JFrame {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(this.getContentPane(), "card22");
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formMouseClicked
 
     /**
      * @param args the command line arguments

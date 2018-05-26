@@ -197,6 +197,8 @@ public class asgnCours extends javax.swing.JPanel {
     private void btclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btclearActionPerformed
         tfmat.setText("");
         tfmat.setBackground(Color.white);
+        tfcodec.setText("");
+        tfcodec.setBackground(Color.white);
 
     }//GEN-LAST:event_btclearActionPerformed
 

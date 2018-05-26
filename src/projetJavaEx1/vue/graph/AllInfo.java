@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import projetJavaEx1.mesclassesCEG.Cours;
 import projetJavaEx1.modele.*;
 import projetJavaEx1.mesclassesCEG.Enseignant;
 
@@ -111,7 +113,7 @@ public class AllInfo extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         List ls = new ArrayList();
-        ls=m.getAllInfo();
+        ls = m.getAllInfo();
         jComboBox1.removeAllItems();
         jComboBox1.setModel(new DefaultComboBoxModel(ls.toArray()));
     }//GEN-LAST:event_jButton1ActionPerformed

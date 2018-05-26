@@ -23,14 +23,16 @@ import myconnections.DBConnection;
  * @author Nugo
  */
 public class ModeleJdbc extends Modele {
-     private static ModeleJdbc instance = null;
-        public static ModeleJdbc getInstance() {
+
+    private static ModeleJdbc instance = null;
+
+    public static ModeleJdbc getInstance() {
         if (instance == null) {
             return instance = new ModeleJdbc();
         } else {
             return instance;
         }
-}
+    }
 
     Connection dbconnect;
 
@@ -57,8 +59,8 @@ public class ModeleJdbc extends Modele {
         String query = "select * from ENSEIGNANT " + critere;
         List<Enseignant> le = new ArrayList<>();
         ResultSet rs = null;
-        try(Statement stm = dbconnect.createStatement();) {
-            
+        try (Statement stm = dbconnect.createStatement();) {
+
             rs = stm.executeQuery(query);
             while (rs.next()) {
                 String mat = rs.getString(1);
@@ -79,10 +81,10 @@ public class ModeleJdbc extends Modele {
     public List<Groupe> tousLesGroupe() {
         String query = "select * from groupe order by codegr ";
         List<Groupe> lg = new ArrayList<>();
-        
+
         ResultSet rs = null;
-        try(Statement stm = dbconnect.createStatement();) {
-            
+        try (Statement stm = dbconnect.createStatement();) {
+
             rs = stm.executeQuery(query);
             while (rs.next()) {
                 String codegr = rs.getString(1);
@@ -95,7 +97,7 @@ public class ModeleJdbc extends Modele {
             }
         } catch (SQLException e) {
             System.err.println("erreur lors de la recherche des groupes " + e);
-        } 
+        }
         return lg;
     }
 
@@ -104,10 +106,10 @@ public class ModeleJdbc extends Modele {
 
         String query = "select * from cours order by codec";
         List<Cours> lc = new ArrayList<>();
-        
+
         ResultSet rs = null;
-        try(Statement stm = dbconnect.createStatement();) {
-           
+        try (Statement stm = dbconnect.createStatement();) {
+
             rs = stm.executeQuery(query);
             while (rs.next()) {
                 String codec = rs.getString(1);
@@ -160,7 +162,7 @@ public class ModeleJdbc extends Modele {
                 /*System.out.println("code du cours : " + codec);
                 System.out.println("nombre d'heure : " + nbr);
                 System.out.println("intitule :" + intitulec);
-                */
+                 */
                 //cours.assignation(e1);
                 lc.add(cours);
             }
@@ -171,8 +173,7 @@ public class ModeleJdbc extends Modele {
         return lc;
 
     }
-    
-    
+
     public List getAllInfo() {
 
         String query = "select c.codec,c.nbrha,c.intitulec,ENS.matricule as mat,ens.nom as nomm,ens.prenom as pren,g.codegr as code_groupe,g.intitulegr as intit,g.niveau as nive from COURS C "
@@ -180,23 +181,22 @@ public class ModeleJdbc extends Modele {
 
         ResultSet rs = null;
         List lc = new ArrayList();
-        
+
         try (PreparedStatement pstm = dbconnect.prepareStatement(query);) {
 
-            
             rs = pstm.executeQuery();
             while (rs.next()) {
                 String codec = rs.getString(1);
                 int nbr = rs.getInt(2);
                 String intitulec = rs.getString(3);
                 String matricule = rs.getString("mat");
-                String nom=rs.getString("nomm");
-                String prenom=rs.getString("pren");
-                String codegr=rs.getString("code_groupe");
-                String intitulegr=rs.getString("intit");
-                String niv=rs.getString("nive");
-                
-                lc.add("Cours : "+" Code cours= "+codec+" Nombre d'heure= "+nbr+" Intitulé du cours= "+intitulec+" "+"Enseignant :"+" Matricule="+matricule+" Nom= "+nom+" Prénom= "+prenom+" "+"Groupe :  Code groupe= "+codegr+" Intitulé groupe= "+intitulec+" Niveau= "+niv);
+                String nom = rs.getString("nomm");
+                String prenom = rs.getString("pren");
+                String codegr = rs.getString("code_groupe");
+                String intitulegr = rs.getString("intit");
+                String niv = rs.getString("nive");
+
+                lc.add("Cours : " + " Code cours= " + codec + " Nombre d'heure= " + nbr + " Intitulé du cours= " + intitulec + " " + "Enseignant :" + " Matricule=" + matricule + " Nom= " + nom + " Prénom= " + prenom + " " + "Groupe :  Code groupe= " + codegr + " Intitulé groupe= " + intitulec + " Niveau= " + niv);
             }
         } catch (SQLException e) {
             System.err.println("erreur lors de la recherche " + e);
@@ -329,9 +329,9 @@ public class ModeleJdbc extends Modele {
 
         try (PreparedStatement pstm = dbconnect.prepareStatement(query);) {
 
-            String mat= e1.getMatricule();
-            String nom= e1.getNom();
-            String prenom= e1.getPrenom();
+            String mat = e1.getMatricule();
+            String nom = e1.getNom();
+            String prenom = e1.getPrenom();
             pstm.setString(1, mat);
             pstm.setString(2, nom);
             pstm.setString(3, prenom);
