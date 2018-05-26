@@ -33,7 +33,8 @@ public class Base extends javax.swing.JFrame {
         suppCrsGrp1.setModele(m);
         affEnseignant1.setModele(m);
         affCoursEns1.setModele(m);
-        
+        affCoursGrp1.setModele(m);
+        allInfo1.setModele(m);
 
     }
 
@@ -68,6 +69,8 @@ public class Base extends javax.swing.JFrame {
         suppEns1 = new projetJavaEx1.vue.graph.suppEns();
         suppGrp1 = new projetJavaEx1.vue.graph.suppGrp();
         affCoursEns1 = new projetJavaEx1.vue.graph.affCoursEns();
+        affCoursGrp1 = new projetJavaEx1.vue.graph.affCoursGrp();
+        allInfo1 = new projetJavaEx1.vue.graph.AllInfo();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuAjout = new javax.swing.JMenu();
         ajoutEnseignant = new javax.swing.JMenuItem();
@@ -88,9 +91,11 @@ public class Base extends javax.swing.JFrame {
         rechEnseignant = new javax.swing.JMenuItem();
         rechCours = new javax.swing.JMenuItem();
         rechGroupe = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
         affichage = new javax.swing.JMenu();
         affListe = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 153, 102));
@@ -165,6 +170,8 @@ public class Base extends javax.swing.JFrame {
         getContentPane().add(suppEns1, "card18");
         getContentPane().add(suppGrp1, "card19");
         getContentPane().add(affCoursEns1, "card20");
+        getContentPane().add(affCoursGrp1, "card21");
+        getContentPane().add(allInfo1, "card22");
 
         MenuAjout.setText("Ajout");
 
@@ -304,6 +311,22 @@ public class Base extends javax.swing.JFrame {
         });
         MenuRech.add(rechGroupe);
 
+        jMenuItem6.setText("Rechercher les enseignants d'un cours");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        MenuRech.add(jMenuItem6);
+
+        jMenuItem7.setText("Rechercher le groupe d'un cours");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        MenuRech.add(jMenuItem7);
+
         jMenuBar1.add(MenuRech);
 
         affichage.setText("Affichages");
@@ -316,13 +339,13 @@ public class Base extends javax.swing.JFrame {
         });
         affichage.add(affListe);
 
-        jMenuItem6.setText("Afficher les enseignants d'un cours");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem8.setText("Afficher les cours ayant un enseignant et un groupe ");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                jMenuItem8ActionPerformed(evt);
             }
         });
-        affichage.add(jMenuItem6);
+        affichage.add(jMenuItem8);
 
         jMenuBar1.add(affichage);
 
@@ -436,6 +459,16 @@ public class Base extends javax.swing.JFrame {
         cardLayout.show(this.getContentPane(), "card20");
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(this.getContentPane(), "card21");
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(this.getContentPane(), "card22");
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -476,6 +509,7 @@ public class Base extends javax.swing.JFrame {
     private javax.swing.JMenu MenuRech;
     private javax.swing.JPanel accueil;
     private projetJavaEx1.vue.graph.affCoursEns affCoursEns1;
+    private projetJavaEx1.vue.graph.affCoursGrp affCoursGrp1;
     private projetJavaEx1.vue.graph.affichage affEnseignant1;
     private javax.swing.JMenuItem affListe;
     private javax.swing.JMenu affichage;
@@ -485,6 +519,7 @@ public class Base extends javax.swing.JFrame {
     private projetJavaEx1.vue.graph.ajoutEnseignant ajoutEnseignant1;
     private javax.swing.JMenuItem ajoutGroupe;
     private projetJavaEx1.vue.graph.ajtCours ajtCours1;
+    private projetJavaEx1.vue.graph.AllInfo allInfo1;
     private projetJavaEx1.vue.graph.asgnCours asgnCours1;
     private javax.swing.JMenuItem assignCours;
     private javax.swing.JMenuItem assignGroupe;
@@ -498,6 +533,8 @@ public class Base extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JMenuItem modifCours;
     private projetJavaEx1.vue.graph.modifCours modifCours1;

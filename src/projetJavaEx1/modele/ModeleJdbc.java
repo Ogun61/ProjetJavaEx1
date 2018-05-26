@@ -161,11 +161,45 @@ public class ModeleJdbc extends Modele {
                 System.out.println("nombre d'heure : " + nbr);
                 System.out.println("intitule :" + intitulec);
                 */
-                cours.assignation(e1);
+                //cours.assignation(e1);
                 lc.add(cours);
             }
         } catch (SQLException e) {
             System.err.println("erreur lors de la recherche du cours " + e);
+            return null;
+        }
+        return lc;
+
+    }
+    
+    
+    public List getAllInfo() {
+
+        String query = "select c.codec,c.nbrha,c.intitulec,ENS.matricule as mat,ens.nom as nomm,ens.prenom as pren,g.codegr as code_groupe,g.intitulegr as intit,g.niveau as nive from COURS C "
+                + "inner join ENSEIGNE E ON C.CODEC = E.CODE_COURS " + " inner join ENSEIGNANT ENS on E.MATRICULE_E = ENS.MATRICULE " + " inner join Groupe g on g.codegr = c.code_groupe ";
+
+        ResultSet rs = null;
+        List lc = new ArrayList();
+        
+        try (PreparedStatement pstm = dbconnect.prepareStatement(query);) {
+
+            
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                String codec = rs.getString(1);
+                int nbr = rs.getInt(2);
+                String intitulec = rs.getString(3);
+                String matricule = rs.getString("mat");
+                String nom=rs.getString("nomm");
+                String prenom=rs.getString("pren");
+                String codegr=rs.getString("code_groupe");
+                String intitulegr=rs.getString("intit");
+                String niv=rs.getString("nive");
+                
+                lc.add("Cours : "+" Code cours= "+codec+" Nombre d'heure= "+nbr+" Intitulé du cours= "+intitulec+" "+"Enseignant :"+" Matricule="+matricule+" Nom= "+nom+" Prénom= "+prenom+" "+"Groupe :  Code groupe= "+codegr+" Intitulé groupe= "+intitulec+" Niveau= "+niv);
+            }
+        } catch (SQLException e) {
+            System.err.println("erreur lors de la recherche " + e);
             return null;
         }
         return lc;

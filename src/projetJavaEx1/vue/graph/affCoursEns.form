@@ -26,14 +26,14 @@
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jmatricule" max="32767" attributes="0"/>
+                      <Component id="jmatricule" pref="361" max="32767" attributes="0"/>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                      <Component id="tfmat" max="32767" attributes="0"/>
+                      <Component id="tfmat" pref="317" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="btclear" max="32767" attributes="0"/>
+                      <Component id="btclear" pref="328" max="32767" attributes="0"/>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                      <Component id="btok" max="32767" attributes="0"/>
+                      <Component id="btok" pref="350" max="32767" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
               </Group>
@@ -86,7 +86,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btok">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Afficher"/>
+        <Property name="text" type="java.lang.String" value="Rechercher"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btokActionPerformed"/>
@@ -114,7 +114,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                   <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="441" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

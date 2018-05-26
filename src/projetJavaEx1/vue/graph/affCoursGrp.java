@@ -1,22 +1,44 @@
 package projetJavaEx1.vue.graph;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import projetJavaEx1.mesclassesCEG.Cours;
-import projetJavaEx1.mesclassesCEG.Groupe;
 import projetJavaEx1.modele.*;
-
+import projetJavaEx1.mesclassesCEG.Enseignant;
+import projetJavaEx1.mesclassesCEG.Groupe;
 
 /**
  *
  * @author ogun.ark
  */
-public class assignGroupe extends javax.swing.JPanel {
+public class affCoursGrp extends javax.swing.JPanel {
 
     private ModeleJdbc m;
 
-    public assignGroupe() {
+    public affCoursGrp() {
         initComponents();
+    }
+
+     public void affCrs(Groupe g) {
+        List<Cours> listC = new ArrayList();
+        listC = m.getGroupeCours(g);
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.fireTableDataChanged();
+        Object listCrs[] = new Object[3];
+        for (int i = 0; i < listC.size(); i++) {
+
+            listCrs[0] = listC.get(i).getCodec();
+            listCrs[1] = listC.get(i).getNbrha();
+            listCrs[2] = listC.get(i).getIntitulec();
+            model.addRow(listCrs);
+
+            model.fireTableDataChanged();
+
+        }
+
     }
 
     public void setModele(ModeleJdbc m) {
@@ -38,12 +60,12 @@ public class assignGroupe extends javax.swing.JPanel {
         javax.swing.JButton btok = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jcodec = new javax.swing.JLabel();
-        tfcodec = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(102, 102, 102));
 
-        jcodegr.setText("Code groupe :");
+        jcodegr.setText("Code :");
 
         tfcodegr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,7 +80,7 @@ public class assignGroupe extends javax.swing.JPanel {
             }
         });
 
-        btok.setText("OK");
+        btok.setText("Rechercher");
         btok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btokActionPerformed(evt);
@@ -81,7 +103,7 @@ public class assignGroupe extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(69, 69, 69)
                 .addComponent(jLabel15)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(493, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,13 +113,23 @@ public class assignGroupe extends javax.swing.JPanel {
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
-        jcodec.setText("Code cours :");
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        tfcodec.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfcodecActionPerformed(evt);
+            },
+            new String [] {
+                "Code", "Nombre d'heure/a", "Intitulé"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -108,79 +140,55 @@ public class assignGroupe extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jcodec, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
-                        .addGap(30, 30, 30)
-                        .addComponent(tfcodec, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE))
+                        .addComponent(jcodegr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tfcodegr))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btclear, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
-                        .addGap(30, 30, 30)
-                        .addComponent(btok, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jcodegr, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
-                        .addGap(30, 30, 30)
-                        .addComponent(tfcodegr, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)))
-                .addGap(25, 25, 25))
+                        .addComponent(btclear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btok, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
+                .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcodec, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfcodec, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcodegr, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfcodegr, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btclear, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btok, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btokActionPerformed
-        tfcodec.setBackground(Color.white);
         tfcodegr.setBackground(Color.white);
 
         boolean erreur = false;
 
-        String codec = tfcodec.getText();
-        if (codec.trim().equals("")) {
-            erreur = true;
-            tfcodec.setBackground(Color.ORANGE);
-        }
-        
-        String codegr = tfcodegr.getText();
-        if (codegr.trim().equals("")) {
+        String code = tfcodegr.getText();
+        if (code.trim().equals("")) {
             erreur = true;
             tfcodegr.setBackground(Color.ORANGE);
         }
 
         if (!erreur) {
-            Cours crsRech = null ;
-            Cours.CoursBuilder c = new Cours.CoursBuilder();
-            c.setCodec(codec);
-        try {
-            crsRech = c.build();
-            
-        } catch (Exception e) {
-            System.out.println("Erreur de création du cours" + e);
-        }
-       
-            Cours cours = m.getCours(crsRech);
-            
-            Groupe grpRech = new Groupe(codegr);
+            Groupe grpRech = new Groupe(code);
             Groupe groupe = m.getGroupe(grpRech);
             
-            String msg = m.appartient(cours, groupe);
-           
-            JOptionPane.showMessageDialog(this, msg, "Résultat", JOptionPane.INFORMATION_MESSAGE);
-            if (cours == null || groupe == null) {
+            ((DefaultTableModel) jTable1.getModel()).setRowCount(0);
+            affCrs(groupe);
 
-                JOptionPane.showMessageDialog(this, "Cours ou groupe introuvable", "Résultat",
+            if (groupe == null) {
+
+                JOptionPane.showMessageDialog(this, "Groupe introuvable", "Erreur",
                         JOptionPane.ERROR_MESSAGE);
 
             } else {
@@ -204,18 +212,14 @@ public class assignGroupe extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfcodegrActionPerformed
 
-    private void tfcodecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfcodecActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfcodecActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btclear;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel jcodec;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel jcodegr;
-    private javax.swing.JTextField tfcodec;
     private javax.swing.JTextField tfcodegr;
     // End of variables declaration//GEN-END:variables
 

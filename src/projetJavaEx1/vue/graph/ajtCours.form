@@ -22,30 +22,28 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jcode" min="-2" pref="339" max="-2" attributes="0"/>
-                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                      <Component id="tfcode" min="-2" pref="339" max="-2" attributes="0"/>
+                      <Component id="jcode" pref="339" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                      <Component id="tfcode" pref="339" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jnbr" max="32767" attributes="0"/>
                           <Component id="btclear" max="32767" attributes="0"/>
                           <Component id="jintitule" pref="339" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                              <Component id="tfintitule" alignment="0" min="-2" pref="339" max="-2" attributes="0"/>
-                              <Component id="btok" alignment="1" min="-2" pref="339" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="tfnbr" alignment="1" min="-2" pref="339" max="-2" attributes="0"/>
+                          <Component id="tfintitule" alignment="0" pref="339" max="32767" attributes="0"/>
+                          <Component id="btok" alignment="1" pref="339" max="32767" attributes="0"/>
+                          <Component id="tfnbr" alignment="1" pref="339" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
           <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
