@@ -170,6 +170,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Afficher les enseignants d&apos;un cours"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem6ActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -405,6 +408,13 @@
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
           <CardConstraints cardName="card19"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="projetJavaEx1.vue.graph.affCoursEns" name="affCoursEns1">
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+          <CardConstraints cardName="card20"/>
         </Constraint>
       </Constraints>
     </Component>

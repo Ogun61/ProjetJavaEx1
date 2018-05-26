@@ -139,7 +139,7 @@ public class Cours {
 
     @Override
     public String toString() {
-        return "Cours{" + "codec=" + codec + ", nbrha=" + nbrha + ", intitulec=" + intitulec + ", enseignants=" + enseignants + ", groupe=" + groupe + '}';
+        return "Cours : " + "codec=" + codec + ", nbrha=" + nbrha + ", intitulec=" + intitulec + ", Enseignants=" + enseignants + ", groupe=" + groupe +"\n";
     }
     
     

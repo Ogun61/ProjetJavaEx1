@@ -32,7 +32,7 @@ public class Base extends javax.swing.JFrame {
         suppGrp1.setModele(m);
         suppCrsGrp1.setModele(m);
         affEnseignant1.setModele(m);
-
+        affCoursEns1.setModele(m);
         
 
     }
@@ -67,6 +67,7 @@ public class Base extends javax.swing.JFrame {
         suppCrs1 = new projetJavaEx1.vue.graph.suppCrs();
         suppEns1 = new projetJavaEx1.vue.graph.suppEns();
         suppGrp1 = new projetJavaEx1.vue.graph.suppGrp();
+        affCoursEns1 = new projetJavaEx1.vue.graph.affCoursEns();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuAjout = new javax.swing.JMenu();
         ajoutEnseignant = new javax.swing.JMenuItem();
@@ -163,6 +164,7 @@ public class Base extends javax.swing.JFrame {
         getContentPane().add(suppCrs1, "card17");
         getContentPane().add(suppEns1, "card18");
         getContentPane().add(suppGrp1, "card19");
+        getContentPane().add(affCoursEns1, "card20");
 
         MenuAjout.setText("Ajout");
 
@@ -315,6 +317,11 @@ public class Base extends javax.swing.JFrame {
         affichage.add(affListe);
 
         jMenuItem6.setText("Afficher les enseignants d'un cours");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         affichage.add(jMenuItem6);
 
         jMenuBar1.add(affichage);
@@ -424,6 +431,11 @@ public class Base extends javax.swing.JFrame {
         cardLayout.show(this.getContentPane(), "card15");
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(this.getContentPane(), "card20");
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -463,6 +475,7 @@ public class Base extends javax.swing.JFrame {
     private javax.swing.JMenu MenuModif;
     private javax.swing.JMenu MenuRech;
     private javax.swing.JPanel accueil;
+    private projetJavaEx1.vue.graph.affCoursEns affCoursEns1;
     private projetJavaEx1.vue.graph.affichage affEnseignant1;
     private javax.swing.JMenuItem affListe;
     private javax.swing.JMenu affichage;
