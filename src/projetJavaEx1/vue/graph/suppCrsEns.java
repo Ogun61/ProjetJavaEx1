@@ -39,7 +39,7 @@ public class suppCrsEns extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(102, 102, 102));
 
-        jcodec.setText("Code :");
+        jcodec.setText("Code cours :");
 
         tfcodec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,7 +54,7 @@ public class suppCrsEns extends javax.swing.JPanel {
             }
         });
 
-        btok.setText("OK");
+        btok.setText("Supprimer");
         btok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btokActionPerformed(evt);

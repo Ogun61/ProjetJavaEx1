@@ -39,7 +39,7 @@ public class suppCrsGrp extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(102, 102, 102));
 
-        jcodegr.setText("Code :");
+        jcodegr.setText("Code cours :");
 
         tfcodegr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,7 +54,7 @@ public class suppCrsGrp extends javax.swing.JPanel {
             }
         });
 
-        btok.setText("OK");
+        btok.setText("Supprimer");
         btok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btokActionPerformed(evt);
@@ -68,7 +68,7 @@ public class suppCrsGrp extends javax.swing.JPanel {
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/group_52px_1.png"))); // NOI18N
-        jLabel15.setText("Groupe");
+        jLabel15.setText("Cours");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

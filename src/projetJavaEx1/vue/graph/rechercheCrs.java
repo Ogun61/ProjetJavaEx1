@@ -55,7 +55,7 @@ public class rechercheCrs extends javax.swing.JPanel {
             }
         });
 
-        btok.setText("OK");
+        btok.setText("Rechercher");
         btok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btokActionPerformed(evt);

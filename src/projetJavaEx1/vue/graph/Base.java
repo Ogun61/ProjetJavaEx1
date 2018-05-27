@@ -150,7 +150,7 @@ public class Base extends javax.swing.JFrame {
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 485, Short.MAX_VALUE))
+                .addGap(0, 1092, Short.MAX_VALUE))
         );
 
         accueil.add(jPanel2);
@@ -181,6 +181,7 @@ public class Base extends javax.swing.JFrame {
 
         MenuAjout.setText("Ajout");
 
+        ajoutEnseignant.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/Iconut.png"))); // NOI18N
         ajoutEnseignant.setText("Enseignant");
         ajoutEnseignant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,6 +190,7 @@ public class Base extends javax.swing.JFrame {
         });
         MenuAjout.add(ajoutEnseignant);
 
+        ajoutCours.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/Icon-Notification.png"))); // NOI18N
         ajoutCours.setText("Cours");
         ajoutCours.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,6 +199,7 @@ public class Base extends javax.swing.JFrame {
         });
         MenuAjout.add(ajoutCours);
 
+        ajoutGroupe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/Iconut.png"))); // NOI18N
         ajoutGroupe.setText("Groupe");
         ajoutGroupe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,6 +208,7 @@ public class Base extends javax.swing.JFrame {
         });
         MenuAjout.add(ajoutGroupe);
 
+        assignCours.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/Icon-Notification.png"))); // NOI18N
         assignCours.setText("Assigner un cours");
         assignCours.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,6 +217,7 @@ public class Base extends javax.swing.JFrame {
         });
         MenuAjout.add(assignCours);
 
+        assignGroupe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/Icon-Notification.png"))); // NOI18N
         assignGroupe.setText("Assigner un groupe");
         assignGroupe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,6 +230,7 @@ public class Base extends javax.swing.JFrame {
 
         MenuModif.setText("Edition");
 
+        modifEnseignant.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/sett.png"))); // NOI18N
         modifEnseignant.setText("Modifier un enseignant");
         modifEnseignant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,6 +239,7 @@ public class Base extends javax.swing.JFrame {
         });
         MenuModif.add(modifEnseignant);
 
+        modifCours.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/sett.png"))); // NOI18N
         modifCours.setText("Modifier un cours");
         modifCours.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,6 +248,7 @@ public class Base extends javax.swing.JFrame {
         });
         MenuModif.add(modifCours);
 
+        modifGroupe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/sett.png"))); // NOI18N
         modifGroupe.setText("Modifier un groupe");
         modifGroupe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,6 +257,7 @@ public class Base extends javax.swing.JFrame {
         });
         MenuModif.add(modifGroupe);
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/sett.png"))); // NOI18N
         jMenuItem2.setText("Suprimmer un enseignant");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -257,6 +266,7 @@ public class Base extends javax.swing.JFrame {
         });
         MenuModif.add(jMenuItem2);
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/sett.png"))); // NOI18N
         jMenuItem3.setText("Supprimer un cours");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,6 +275,7 @@ public class Base extends javax.swing.JFrame {
         });
         MenuModif.add(jMenuItem3);
 
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/sett.png"))); // NOI18N
         jMenuItem4.setText("Supprimer un groupe");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -273,6 +284,7 @@ public class Base extends javax.swing.JFrame {
         });
         MenuModif.add(jMenuItem4);
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/sett.png"))); // NOI18N
         jMenuItem1.setText("Supprimer tous les enseignant associé au cours ");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,6 +293,7 @@ public class Base extends javax.swing.JFrame {
         });
         MenuModif.add(jMenuItem1);
 
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/sett.png"))); // NOI18N
         jMenuItem5.setText("Supprimer tous les cours associé a un groupe");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -293,6 +306,7 @@ public class Base extends javax.swing.JFrame {
 
         MenuRech.setText("Recherche");
 
+        rechEnseignant.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/search_20px_1.png"))); // NOI18N
         rechEnseignant.setText("Enseignant");
         rechEnseignant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,6 +315,7 @@ public class Base extends javax.swing.JFrame {
         });
         MenuRech.add(rechEnseignant);
 
+        rechCours.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/search_20px_1.png"))); // NOI18N
         rechCours.setText("Cours");
         rechCours.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -309,6 +324,7 @@ public class Base extends javax.swing.JFrame {
         });
         MenuRech.add(rechCours);
 
+        rechGroupe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/search_20px_1.png"))); // NOI18N
         rechGroupe.setText("Groupe");
         rechGroupe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,6 +333,7 @@ public class Base extends javax.swing.JFrame {
         });
         MenuRech.add(rechGroupe);
 
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/search_20px_1.png"))); // NOI18N
         jMenuItem6.setText("Rechercher les cours d'un enseignant");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -325,6 +342,7 @@ public class Base extends javax.swing.JFrame {
         });
         MenuRech.add(jMenuItem6);
 
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/search_20px_1.png"))); // NOI18N
         jMenuItem7.setText("Rechercher le groupe d'un cours");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -337,6 +355,7 @@ public class Base extends javax.swing.JFrame {
 
         affichage.setText("Affichages");
 
+        affListe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/list.png"))); // NOI18N
         affListe.setText("Affichage");
         affListe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -345,6 +364,7 @@ public class Base extends javax.swing.JFrame {
         });
         affichage.add(affListe);
 
+        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetJavaEx1/vue/graph/Images/list.png"))); // NOI18N
         jMenuItem8.setText("Afficher les cours ayant un enseignant et un groupe ");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

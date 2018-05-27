@@ -11,6 +11,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="ajoutEnseignant">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/projetJavaEx1/vue/graph/Images/Iconut.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Enseignant"/>
               </Properties>
               <Events>
@@ -19,6 +22,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="ajoutCours">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/projetJavaEx1/vue/graph/Images/Icon-Notification.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Cours"/>
               </Properties>
               <Events>
@@ -27,6 +33,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="ajoutGroupe">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/projetJavaEx1/vue/graph/Images/Iconut.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Groupe"/>
               </Properties>
               <Events>
@@ -35,6 +44,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="assignCours">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/projetJavaEx1/vue/graph/Images/Icon-Notification.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Assigner un cours"/>
               </Properties>
               <Events>
@@ -43,6 +55,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="assignGroupe">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/projetJavaEx1/vue/graph/Images/Icon-Notification.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Assigner un groupe"/>
               </Properties>
               <Events>
@@ -58,6 +73,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="modifEnseignant">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/projetJavaEx1/vue/graph/Images/sett.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Modifier un enseignant"/>
               </Properties>
               <Events>
@@ -66,6 +84,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="modifCours">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/projetJavaEx1/vue/graph/Images/sett.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Modifier un cours"/>
               </Properties>
               <Events>
@@ -74,6 +95,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="modifGroupe">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/projetJavaEx1/vue/graph/Images/sett.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Modifier un groupe"/>
               </Properties>
               <Events>
@@ -82,6 +106,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/projetJavaEx1/vue/graph/Images/sett.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Suprimmer un enseignant"/>
               </Properties>
               <Events>
@@ -90,6 +117,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/projetJavaEx1/vue/graph/Images/sett.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Supprimer un cours"/>
               </Properties>
               <Events>
@@ -98,6 +128,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/projetJavaEx1/vue/graph/Images/sett.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Supprimer un groupe"/>
               </Properties>
               <Events>
@@ -106,6 +139,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/projetJavaEx1/vue/graph/Images/sett.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Supprimer tous les enseignant associ&#xe9; au cours "/>
               </Properties>
               <Events>
@@ -114,6 +150,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/projetJavaEx1/vue/graph/Images/sett.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Supprimer tous les cours associ&#xe9; a un groupe"/>
               </Properties>
               <Events>
@@ -129,6 +168,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="rechEnseignant">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/projetJavaEx1/vue/graph/Images/search_20px_1.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Enseignant"/>
               </Properties>
               <Events>
@@ -137,6 +179,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="rechCours">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/projetJavaEx1/vue/graph/Images/search_20px_1.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Cours"/>
               </Properties>
               <Events>
@@ -145,6 +190,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="rechGroupe">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/projetJavaEx1/vue/graph/Images/search_20px_1.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Groupe"/>
               </Properties>
               <Events>
@@ -153,6 +201,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/projetJavaEx1/vue/graph/Images/search_20px_1.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Rechercher les cours d&apos;un enseignant"/>
               </Properties>
               <Events>
@@ -161,6 +212,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/projetJavaEx1/vue/graph/Images/search_20px_1.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Rechercher le groupe d&apos;un cours"/>
               </Properties>
               <Events>
@@ -176,6 +230,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="affListe">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/projetJavaEx1/vue/graph/Images/list.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Affichage"/>
               </Properties>
               <Events>
@@ -184,6 +241,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/projetJavaEx1/vue/graph/Images/list.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Afficher les cours ayant un enseignant et un groupe "/>
               </Properties>
               <Events>
@@ -220,7 +280,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-21,0,0,2,-52"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,5,74,0,0,2,-52"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
@@ -276,7 +336,7 @@
                       <Component id="jLabel14" min="-2" pref="151" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" pref="72" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="485" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="1092" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

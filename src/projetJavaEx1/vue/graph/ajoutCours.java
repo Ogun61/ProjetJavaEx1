@@ -81,7 +81,7 @@ public class ajoutCours extends javax.swing.JPanel {
         });
         add(btclear);
 
-        btok.setText("OK");
+        btok.setText("Ajouter");
         btok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btokActionPerformed(evt);

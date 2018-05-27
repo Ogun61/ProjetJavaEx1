@@ -103,7 +103,7 @@ public class modifGroupe extends javax.swing.JPanel {
             }
         });
 
-        btok.setText("OK");
+        btok.setText("Modifier");
         btok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btokActionPerformed(evt);
