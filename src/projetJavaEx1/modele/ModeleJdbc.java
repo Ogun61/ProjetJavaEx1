@@ -72,7 +72,7 @@ public class ModeleJdbc extends Modele {
                 String nom = rs.getString(2);
                 String prenom = rs.getString(3);
 
-                Enseignant e = new Enseignant(mat, nom, prenom);
+                Enseignant e = new Enseignant(nom, prenom, mat);
 
                 le.add(e);
             }

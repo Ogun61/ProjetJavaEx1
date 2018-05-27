@@ -183,9 +183,6 @@ public class affCoursGrp extends javax.swing.JPanel {
             Groupe grpRech = new Groupe(code);
             Groupe groupe = m.getGroupe(grpRech);
             
-            ((DefaultTableModel) jTable1.getModel()).setRowCount(0);
-            affCrs(groupe);
-
             if (groupe == null) {
 
                 JOptionPane.showMessageDialog(this, "Groupe introuvable", "Erreur",
@@ -197,6 +194,11 @@ public class affCoursGrp extends javax.swing.JPanel {
                 }
 
             }
+            
+            ((DefaultTableModel) jTable1.getModel()).setRowCount(0);
+            affCrs(groupe);
+
+            
         }
 
 

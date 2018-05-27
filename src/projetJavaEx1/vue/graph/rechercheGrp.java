@@ -136,8 +136,10 @@ public class rechercheGrp extends javax.swing.JPanel {
         if (!erreur) {
             Groupe grpRech = new Groupe(code);
             Groupe groupe = m.getGroupe(grpRech);
-            JOptionPane.showMessageDialog(this, groupe);
-            if (groupe == null) {
+
+            if (groupe != null) {
+                JOptionPane.showMessageDialog(this, groupe);
+            } else if (groupe == null) {
 
                 JOptionPane.showMessageDialog(this, "Groupe introuvable", "Résultat",
                         JOptionPane.ERROR_MESSAGE);

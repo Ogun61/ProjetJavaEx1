@@ -5,7 +5,6 @@ import javax.swing.JOptionPane;
 import projetJavaEx1.mesclassesCEG.Cours;
 import projetJavaEx1.modele.*;
 
-
 /**
  *
  * @author ogun.ark
@@ -135,20 +134,20 @@ public class rechercheCrs extends javax.swing.JPanel {
         }
 
         if (!erreur) {
-            Cours crsRech = null ;
+            Cours crsRech = null;
             Cours.CoursBuilder c = new Cours.CoursBuilder();
             c.setCodec(code);
-        try {
-            crsRech = c.build();
-            
-        } catch (Exception e) {
-            System.out.println("Erreur de création du cours" + e);
-        }
-        
-            
+            try {
+                crsRech = c.build();
+
+            } catch (Exception e) {
+                System.out.println("Erreur de création du cours" + e);
+            }
+
             Cours cours = m.getCours(crsRech);
-            JOptionPane.showMessageDialog(this, cours);
-            if (cours == null) {
+            if (cours != null) {
+                JOptionPane.showMessageDialog(this, cours);
+            } else if (cours == null) {
 
                 JOptionPane.showMessageDialog(this, "Cours introuvable", "Résultat",
                         JOptionPane.ERROR_MESSAGE);

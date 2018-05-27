@@ -6,7 +6,6 @@ import projetJavaEx1.mesclassesCEG.Cours;
 import projetJavaEx1.mesclassesCEG.Groupe;
 import projetJavaEx1.modele.*;
 
-
 /**
  *
  * @author ogun.ark
@@ -152,7 +151,7 @@ public class assignGroupe extends javax.swing.JPanel {
             erreur = true;
             tfcodec.setBackground(Color.ORANGE);
         }
-        
+
         String codegr = tfcodegr.getText();
         if (codegr.trim().equals("")) {
             erreur = true;
@@ -160,27 +159,28 @@ public class assignGroupe extends javax.swing.JPanel {
         }
 
         if (!erreur) {
-            Cours crsRech = null ;
+            Cours crsRech = null;
             Cours.CoursBuilder c = new Cours.CoursBuilder();
             c.setCodec(codec);
-        try {
-            crsRech = c.build();
-            
-        } catch (Exception e) {
-            System.out.println("Erreur de création du cours" + e);
-        }
-       
+            try {
+                crsRech = c.build();
+
+            } catch (Exception e) {
+                System.out.println("Erreur de création du cours" + e);
+            }
+
             Cours cours = m.getCours(crsRech);
-            
+
             Groupe grpRech = new Groupe(codegr);
             Groupe groupe = m.getGroupe(grpRech);
-            
-            String msg = m.appartient(cours, groupe);
-           
-            JOptionPane.showMessageDialog(this, msg, "Résultat", JOptionPane.INFORMATION_MESSAGE);
-            if (cours == null || groupe == null) {
 
-                JOptionPane.showMessageDialog(this, "Cours ou groupe introuvable", "Résultat",
+            if (cours != null || groupe != null) {
+                String msg = m.appartient(cours, groupe);
+
+                JOptionPane.showMessageDialog(this, msg, "Résultat", JOptionPane.INFORMATION_MESSAGE);
+            } else if (cours == null || groupe == null) {
+
+                JOptionPane.showMessageDialog(this, "Cours et/ou groupe introuvable", "Erreur",
                         JOptionPane.ERROR_MESSAGE);
 
             } else {

@@ -6,7 +6,6 @@ import projetJavaEx1.mesclassesCEG.Cours;
 import projetJavaEx1.mesclassesCEG.Enseignant;
 import projetJavaEx1.modele.*;
 
-
 /**
  *
  * @author ogun.ark
@@ -152,7 +151,7 @@ public class asgnCours extends javax.swing.JPanel {
             erreur = true;
             tfcodec.setBackground(Color.ORANGE);
         }
-        
+
         String matricule = tfmat.getText();
         if (matricule.trim().equals("")) {
             erreur = true;
@@ -160,25 +159,25 @@ public class asgnCours extends javax.swing.JPanel {
         }
 
         if (!erreur) {
-            Cours crsRech = null ;
+            Cours crsRech = null;
             Cours.CoursBuilder c = new Cours.CoursBuilder();
             c.setCodec(code);
-        try {
-            crsRech = c.build();
-            
-        } catch (Exception e) {
-            System.out.println("Erreur de création du cours" + e);
-        }
-       
+            try {
+                crsRech = c.build();
+
+            } catch (Exception e) {
+                System.out.println("Erreur de création du cours" + e);
+            }
+
             Cours cours = m.getCours(crsRech);
-            
+
             Enseignant ensRech = new Enseignant(matricule);
             Enseignant enseignant = m.getEnseignant(ensRech);
-            
-            String msg = m.assignation(cours, enseignant);
-           
-            JOptionPane.showMessageDialog(this, msg, "Résultat", JOptionPane.INFORMATION_MESSAGE);
-            if (cours == null || enseignant == null) {
+
+            if (cours != null || enseignant != null) {
+                String msg = m.assignation(cours, enseignant);
+                JOptionPane.showMessageDialog(this, msg, "Résultat", JOptionPane.INFORMATION_MESSAGE);
+            } else if (cours == null || enseignant == null) {
 
                 JOptionPane.showMessageDialog(this, "Cours ou enseignant introuvable", "Résultat",
                         JOptionPane.ERROR_MESSAGE);

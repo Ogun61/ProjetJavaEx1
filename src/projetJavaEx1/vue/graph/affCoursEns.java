@@ -25,7 +25,7 @@ public class affCoursEns extends javax.swing.JPanel {
         List<Cours> listC = new ArrayList();
         listC = m.getEnseignantCours(e1);
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        model.fireTableDataChanged();
+        
         Object listCrs[] = new Object[3];
         for (int i = 0; i < listC.size(); i++) {
 
@@ -33,8 +33,7 @@ public class affCoursEns extends javax.swing.JPanel {
             listCrs[1] = listC.get(i).getNbrha();
             listCrs[2] = listC.get(i).getIntitulec();
             model.addRow(listCrs);
-
-            model.fireTableDataChanged();
+            
 
         }
 
@@ -182,9 +181,6 @@ public class affCoursEns extends javax.swing.JPanel {
             Enseignant ensRech = new Enseignant(matricule);
             Enseignant enseignant = m.getEnseignant(ensRech);
             
-            ((DefaultTableModel) jTable1.getModel()).setRowCount(0);
-            affCrs(enseignant);
-
             if (enseignant == null) {
 
                 JOptionPane.showMessageDialog(this, "Enseignant introuvable", "Erreur",
@@ -196,6 +192,11 @@ public class affCoursEns extends javax.swing.JPanel {
                 }
 
             }
+            
+            ((DefaultTableModel) jTable1.getModel()).setRowCount(0);
+            affCrs(enseignant);
+
+            
         }
 
 

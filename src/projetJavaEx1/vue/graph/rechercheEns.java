@@ -136,8 +136,10 @@ public class rechercheEns extends javax.swing.JPanel {
         if (!erreur) {
             Enseignant ensRech = new Enseignant(matricule);
             Enseignant enseignant = m.getEnseignant(ensRech);
-            JOptionPane.showMessageDialog(this, enseignant);
-            if (enseignant == null) {
+
+            if (enseignant != null) {
+                JOptionPane.showMessageDialog(this, enseignant);
+            } else if (enseignant == null) {
 
                 JOptionPane.showMessageDialog(this, "Enseignant introuvable", "Résultat",
                         JOptionPane.ERROR_MESSAGE);
