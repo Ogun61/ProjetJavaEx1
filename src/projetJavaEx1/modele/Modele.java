@@ -100,7 +100,11 @@ public class Modele {
         }
     }
     
-    
+    /**
+     *
+     * @param e est  l'enseignant
+     * @return la liste des cours
+     */
     public List<Cours> getEnseignantCours(Enseignant e){
       List<Cours> listec =new ArrayList<>();
       List<Enseignant> listee =new ArrayList<>();
@@ -117,6 +121,11 @@ public class Modele {
      
   }
     
+    /**
+     *recupere le cours appartenant au groupe
+     * @param g est le groupe
+     * @return les cours
+     */
     public List<Cours> getGroupeCours(Groupe g){
       List<Cours> listec =new ArrayList<>();
       List<Groupe> listeg =new ArrayList<>();
@@ -181,7 +190,13 @@ public class Modele {
 
     }
     
-        public String modifGrp(Groupe nvGrp, Groupe tmp) {
+    /**
+     *Modifie le groupe
+     * @param nvGrp est le nouveau groupe
+     * @param tmp est l'ancien groupe
+     * @return
+     */
+    public String modifGrp(Groupe nvGrp, Groupe tmp) {
         int i = groupe.indexOf(tmp);
         if (i < 0) {
             return "groupe n'existe pas ?";
@@ -275,6 +290,11 @@ public class Modele {
 
     }
 
+    /**
+     *supprime les enseignant du cours
+     * @param c cours pour lequel les enseignant vont etre supprimer
+     * @return
+     */
     public String suppCoursEns(Cours c) {
 
         int i = crs.indexOf(c);
@@ -289,6 +309,11 @@ public class Modele {
 
     }
     
+    /**
+     *supprime les groupes  du cours 
+     * @param c cours pour lequel les groupes vont etre supprimer
+     * @return le résultat
+     */
     public String suppCoursGrp(Cours c) {
 
         int i = crs.indexOf(c);

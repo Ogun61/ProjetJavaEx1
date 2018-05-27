@@ -58,29 +58,76 @@ public class Controleur {
             ch = v.menu1();
 
             switch (ch) {
-                case 1:ajtEns();break;
-                case 2:ajtCours();break;
-                case 3:ajtGroupe();break;
-                case 4:assignCrs();break;
-                case 5:assignGroupe();break;
-                case 6:modifEns();break;
-                case 7:supprimerEns();break;
-                case 8:modifGrp();break;
-                case 9:supprimerGrp();break;
-                case 10:modifCrs();break;
-                case 11:supprimerCrs();break;
-                case 12:supprimerCrsEns();break;
-                case 13:supprimerCrsGrp();break;
-                case 14:rechEns();break;
-                case 15:rechCours();break;
-                case 16:rechGroupe();break;
-                case 17:List<Cours> lc = affCrsEns(); v.affListe(lc);break;
-                case 18:List<Cours> lg = affCrsGrp(); v.affListe(lg);break;
-                case 19:listeEns();break;
-                case 20:listeCrs();break;
-                case 21:listeGrp();break;
-                case 22:v.affMsg("Fin");break;
-                default:v.affMsg("Choix invalide");
+                case 1:
+                    ajtEns();
+                    break;
+                case 2:
+                    ajtCours();
+                    break;
+                case 3:
+                    ajtGroupe();
+                    break;
+                case 4:
+                    assignCrs();
+                    break;
+                case 5:
+                    assignGroupe();
+                    break;
+                case 6:
+                    modifEns();
+                    break;
+                case 7:
+                    supprimerEns();
+                    break;
+                case 8:
+                    modifGrp();
+                    break;
+                case 9:
+                    supprimerGrp();
+                    break;
+                case 10:
+                    modifCrs();
+                    break;
+                case 11:
+                    supprimerCrs();
+                    break;
+                case 12:
+                    supprimerCrsEns();
+                    break;
+                case 13:
+                    supprimerCrsGrp();
+                    break;
+                case 14:
+                    rechEns();
+                    break;
+                case 15:
+                    rechCours();
+                    break;
+                case 16:
+                    rechGroupe();
+                    break;
+                case 17:
+                    List<Cours> lc = affCrsEns();
+                    v.affListe(lc);
+                    break;
+                case 18:
+                    List<Cours> lg = affCrsGrp();
+                    v.affListe(lg);
+                    break;
+                case 19:
+                    listeEns();
+                    break;
+                case 20:
+                    listeCrs();
+                    break;
+                case 21:
+                    listeGrp();
+                    break;
+                case 22:
+                    v.affMsg("Fin");
+                    break;
+                default:
+                    v.affMsg("Choix invalide");
             }
         } while (ch != 22);
 
@@ -143,22 +190,30 @@ public class Controleur {
         Cours cRech = v.rechCours();
         return m.getCours(cRech);
     }
-    
+
+    /**
+     * methode qui affiche les cours de l'enseignant
+     */
     private List<Cours> affCrsEns() {
         Enseignant eRech = v.rechEns();
         Enseignant tmp = m.getEnseignant(eRech);
         return m.getEnseignantCours(tmp);
-       
+
     }
-    
+
+    /**
+     * methode qui affiche les cours du groupe
+     */
     private List<Cours> affCrsGrp() {
         Groupe gRech = v.rechGroupe();
         Groupe tmp = m.getGroupe(gRech);
         return m.getGroupeCours(tmp);
-       
-    }
-    
 
+    }
+
+    /**
+     * methode qui recherche le groupe
+     */
     private void rechGroupe() {
         Groupe g = v.rechGroupe();
         v.affMsg(m.getGroupe(g));
@@ -208,7 +263,7 @@ public class Controleur {
     }
 
     /**
-     * methode qui permet d'assigner un enseignant a un cours
+     * methode qui permet d'assigner un cours a un enseignant
      */
     public void assignCrs() {
         v.affMsg("-assignation du cours-");
@@ -235,6 +290,9 @@ public class Controleur {
 
     }
 
+    /**
+     * methode qui assigne un groupe a un cours
+     */
     public void assignGroupe() {
         v.affMsg("-assignation du groupe-");
         Cours crsRech = rechCrs();
@@ -274,9 +332,11 @@ public class Controleur {
         v.affMsg(m.modifEns(nvEns, tmp));
 
     }
-    
-    
-       private void modifGrp() {
+
+    /**
+     * methode qui modifie le groupe
+     */
+    private void modifGrp() {
         Groupe gRech = v.rechGroupe();
         Groupe tmp = m.getGroupe(gRech);
         v.affMsg("***Modification du groupe***");
@@ -286,8 +346,11 @@ public class Controleur {
         v.affMsg(m.modifGrp(nvGrp, tmp));
 
     }
-       
-           private void supprimerGrp() {
+
+    /**
+     * methode qui supprime le groupe
+     */
+    private void supprimerGrp() {
         Groupe gRech = v.rechGroupe();
         Groupe tmp = m.getGroupe(gRech);
         v.affMsg("** Suppression du groupe***");
@@ -321,46 +384,46 @@ public class Controleur {
         v.affMsg(m.suppCours(tmp));
 
     }
-    
-    
+
+    /**
+     * methode qui supprime les cours de l'enseignant
+     */
     private void supprimerCrsEns() {
         Cours cRech = v.rechCours();
         Cours tmp = m.getCours(cRech);
-        if (tmp==null) {
+        if (tmp == null) {
             v.affMsg("Cours n'existe pas ");
-        }else{
-        String ch = v.supCoursEns();
-        if ("non".equals(ch)) {
-            v.affMsg("La suppression a été annuler");
         } else {
-            v.affMsg("** Suppression de tous les cours de l'enseignants ** ");
-            v.affMsg(tmp);
-            v.affMsg(m.suppCoursEns(tmp));
-        }
+            String ch = v.supCoursEns();
+            if ("non".equals(ch)) {
+                v.affMsg("La suppression a été annuler");
+            } else {
+                v.affMsg("** Suppression de tous les cours de l'enseignants ** ");
+                v.affMsg(tmp);
+                v.affMsg(m.suppCoursEns(tmp));
+            }
         }
     }
-    
-    
-    
+
+    /**
+     * methode qui supprime les cours du groupe
+     */
     private void supprimerCrsGrp() {
         Cours cRech = v.rechCours();
         Cours tmp = m.getCours(cRech);
-        if (tmp==null) {
+        if (tmp == null) {
             v.affMsg("Cours n'existe pas ");
-        }else{
-        String ch = v.supCoursGrp();
-        if ("non".equals(ch)) {
-            v.affMsg("La suppression a été annuler");
         } else {
-            v.affMsg("** Suppression de tous les groupe ** ");
-            v.affMsg(tmp);
-            v.affMsg(m.suppCoursGrp(tmp));
-        }
+            String ch = v.supCoursGrp();
+            if ("non".equals(ch)) {
+                v.affMsg("La suppression a été annuler");
+            } else {
+                v.affMsg("** Suppression de tous les groupe ** ");
+                v.affMsg(tmp);
+                v.affMsg(m.suppCoursGrp(tmp));
+            }
         }
     }
-    
-    
-    
 
     /**
      * methode qui affiche toute la liste des enseignants
@@ -378,6 +441,9 @@ public class Controleur {
         v.affListe(lc);
     }
 
+    /**
+     * methode qui affiche toute la liste des groupes
+     */
     public void listeGrp() {
         List<Groupe> lg = m.tousLesGroupe();
         v.affListe(lg);

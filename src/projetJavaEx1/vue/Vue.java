@@ -135,6 +135,10 @@ public class Vue {
         
     }
     
+    /**
+     *  créer un nouveau groupe
+     * @return le groupe créer a partir des infos rentrée
+     */
     public Groupe ajoutGroupe() {
         String codeg = getMsg("Code groupe ? ");
         String intituleg = getMsg("intitule du groupe ? ");
@@ -260,6 +264,11 @@ public class Vue {
 
     }*/
     
+    /**
+     * methode rechGroupe permet de rechercher un groupe a partir de son code
+     *
+     * @return le cours trouvé "gRech"
+     */
      public Groupe rechGroupe() {
 
         String codeg = getMsg("code du groupe à rechercher ? ");
@@ -268,7 +277,11 @@ public class Vue {
 
     }
      
-     public String supCoursEns() {
+    /**
+     *Vérifie si l'utilisater est sur de supprimer tous les cours de l'enseignant 
+     * @return le oui ou 0
+     */
+    public String supCoursEns() {
         affMsg("** Attention cette action supprimera tous les enseignants du cours. Pour annuler l'opération entrez 'non' ** ");
         String ch = getMsg("Pour supprimer tous les ensignants entrez 'oui'(0 pour annuler) . ");
         //int choix = Integer.parseInt(ch);
@@ -276,7 +289,11 @@ public class Vue {
 
     }
      
-     public String supCoursGrp() {
+    /**
+     *Vérifie si l'utilisater est sur de supprimer tous les cours du groupe 
+     * @return le oui ou 0
+     */
+    public String supCoursGrp() {
         affMsg("** Attention cette action supprimera tous les groupe du cours. Pour annuler l'opération entrez 'non' ** ");
         String ch = getMsg("Pour supprimer touss les groupes entrez 'oui'(0 pour annuler) . ");
         //int choix = Integer.parseInt(ch);

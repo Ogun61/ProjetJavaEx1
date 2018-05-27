@@ -142,7 +142,11 @@ public class Cours {
         return "Cours : " + "codec=" + codec + ", nbrha=" + nbrha + ", intitulec=" + intitulec + ", Enseignants=" + enseignants + ", groupe=" + groupe +"\n";
     }
     
-    
+    /**
+     *assigne un cours a un groupe
+     * @param groupe est le groupe qui recevra un cours 
+     * @return
+     */
     public String appartient(Groupe groupe) {
         if (groupe == null) {
             return "groupe n'existe pas";
@@ -154,6 +158,11 @@ public class Cours {
         return "le cours a été attribuer au groupe";
     }
     
+    /**
+     *assigne un cours a un enseignant
+     * @param enseignant est l'enseignant qui dispensera le cours
+     * @return
+     */
     public String assignation(Enseignant enseignant) {
         if (enseignant == null) {
             return "Enseignant n'existe pas";

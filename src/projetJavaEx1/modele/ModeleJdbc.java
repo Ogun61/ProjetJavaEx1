@@ -52,6 +52,11 @@ public class ModeleJdbc extends Modele {
         }
     }
 
+    /**
+     * permet d'afficher tous les enseignants
+     *
+     * @return la liste des enseignants
+     */
     @Override
     public List<Enseignant> tousLesEnseignant() {
         String critere = "ORDER BY MATRICULE,NOM,PRENOM";
@@ -77,6 +82,12 @@ public class ModeleJdbc extends Modele {
         return le;
     }
 
+    
+    /**
+     * permet d'afficher tous les groupes
+     *
+     * @return la liste des groupes
+     */
     @Override
     public List<Groupe> tousLesGroupe() {
         String query = "select * from groupe order by codegr ";
@@ -101,6 +112,11 @@ public class ModeleJdbc extends Modele {
         return lg;
     }
 
+    /**
+     * permet d'afficher tous les cours
+     *
+     * @return la liste des cours
+     */
     @Override
     public List<Cours> tousLesCrs() {
 
@@ -134,6 +150,11 @@ public class ModeleJdbc extends Modele {
         return lc;
     }
 
+    /**
+     * recherche le cours appartenant a l'enseignant
+     *
+     * @return la liste des cours 
+     */
     @Override
     public List<Cours> getEnseignantCours(Enseignant e1) {
 
@@ -174,6 +195,11 @@ public class ModeleJdbc extends Modele {
 
     }
 
+   /**
+     *récupere tous les cours ayant un enseignant et un groupe
+     *
+     * @return la liste de tous les info de des relations
+     */
     public List getAllInfo() {
 
         String query = "select c.codec,c.nbrha,c.intitulec,ENS.matricule as mat,ens.nom as nomm,ens.prenom as pren,g.codegr as code_groupe,g.intitulegr as intit,g.niveau as nive from COURS C "
@@ -206,6 +232,11 @@ public class ModeleJdbc extends Modele {
 
     }
 
+    /**
+     * recherche le cours d'un groupe
+     *
+     * @return la liste des cours
+     */
     @Override
     public List<Cours> getGroupeCours(Groupe g) {
         Cours cb = null;
@@ -240,6 +271,11 @@ public class ModeleJdbc extends Modele {
 
     }
 
+    /**
+     * recherche l'enseignant
+     *
+     * @return l'enseignant rechercher
+     */
     @Override
     public Enseignant getEnseignant(Enseignant eRech) {
 
