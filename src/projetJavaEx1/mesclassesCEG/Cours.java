@@ -104,10 +104,6 @@ public class Cours {
                 throw new Exception("informations de base manquantes");
             }
             
-            if (nbrha==0) {
-                throw new Exception("informations de base manquantes");
-            }
-            
             
             return new Cours(this);
         }
