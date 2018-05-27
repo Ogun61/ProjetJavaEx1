@@ -113,6 +113,13 @@ public class AllInfo extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         List ls = new ArrayList();
+        List ts=new ArrayList();
+        List tt=new ArrayList();
+        List tp=new ArrayList();
+        tt=m.tousLesCrs();
+        tp=m.tousLesGroupe();
+        ts=m.tousLesEnseignant();
+        JOptionPane.showMessageDialog(this,"INFOS\nIl y a "+ts.size()+" enseignant(s), "+tt.size()+" cours et "+tp.size()+" groupe(s) dans la base de données" , "Message", JOptionPane.INFORMATION_MESSAGE);
         ls = m.getAllInfo();
         jComboBox1.removeAllItems();
         jComboBox1.setModel(new DefaultComboBoxModel(ls.toArray()));
